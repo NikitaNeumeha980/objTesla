@@ -136,13 +136,13 @@ box_split =\
         Vertex_1, # базовая точка
         geompy.MakeVectorDXDYDZ(0, 1, 0), # вектор
         box_mesh_X, # радиус
-        w
+        w * 2
     )
 t_box_split = geompy.MakeTranslation(
     box_split,
     -(step_box - (w / (math.sin((90-alpha)*math.pi/180.0))) * 0.5),
     0,
-    -(w * 0.5))
+    -(w * 1.5))
 
 box_mix =\
     geompy.MakeCylinder(
@@ -155,11 +155,11 @@ t_box_mix = geompy.MakeTranslation(
     box_mix,
     step_box - (w / (math.sin((90-alpha)*math.pi/180.0))) * 0.5,
     0,
-    -(w * 0.5))
+    -(w * 1.5))
 
 simply_box = geompy.MakeFuseList ([t_box_mix, t_box_split], True, True)
 
-box_ent = geompy.MakeBox(0, 0, 0, w, w, w)
+box_ent = geompy.MakeBox(0, w * 2, 0, w, -(w * 2), w)
 box_out = geompy.MakeTranslation(box_ent, L - w, 0, 0)
 box_e_o = geompy.MakeFuseList([box_ent, box_out], True, True)
 

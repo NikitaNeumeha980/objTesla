@@ -43,7 +43,7 @@ box_L2 = box_L1 - (r1 - r2) * 2
 
 #смещение ушек
 step_k = 2
-step = (box_L1 / 1.2 ) / (math.sin((90-alpha)*math.pi/180.0))
+step = box_L1 / (math.sin((90-alpha)*math.pi/180.0))
 
 # длина отводящей магистрали
 box_h = w + box_L1 + w * 10
@@ -61,8 +61,8 @@ box_mesh_X = (w / (math.sin((90-alpha)*math.pi/180.0))) * 1.5
 rot = 0.3
 
 # плотность сетки
-min_size = 0.2
-max_size = 1.75
+min_size = 0.25
+max_size = 0.75
 
 geompy = geomBuilder.New()
 
@@ -175,22 +175,26 @@ simply_tesla_n = simply_tesla
 t_box_split_mirr = t_box_split
 t_box_mix_mirr = t_box_mix
 simply_box_n = simply_box
-while i < num:
+#while i < num:
+for i in range(num - 1):
     Mirror_n = geompy.MakeMirrorByAxis(Cut_n, Line_2)
     Mirror_n2 = geompy.MakeTranslation(Mirror_n, step, 0, 0)
     simply_tesla_num = geompy.MakeFuseList([simply_tesla_n, Mirror_n2], True, True)
     Cut_n = Mirror_n2
     simply_tesla_n = simply_tesla_num
     # боксы для мелкой сетки
-    t_box_split_n = geompy.MakeMirrorByAxis(t_box_split_mirr, Line_2)
-    t_box_split_n2 = geompy.MakeTranslation(t_box_split_n, step, 0, 0)
-    t_box_mix_n = geompy.MakeMirrorByAxis(t_box_mix_mirr, Line_2)
-    t_box_mix_n2 = geompy.MakeTranslation(t_box_mix_n, step, 0, 0)
+    #t_box_split_n = geompy.MakeMirrorByAxis(t_box_split_mirr, Line_2)
+    t_box_split_n2 = geompy.MakeTranslation(t_box_split_mirr, step, 0, 0)
+
+    #t_box_mix_n = geompy.MakeMirrorByAxis(t_box_mix_mirr, Line_2)
+    t_box_mix_n2 = geompy.MakeTranslation(t_box_mix_mirr, step, 0, 0)
+
     simply_box_num = geompy.MakeFuseList([simply_box_n, t_box_split_n2, t_box_mix_n2])
     simply_box_n = simply_box_num
+
     t_box_split_mirr = t_box_split_n2
     t_box_mix_mirr = t_box_mix_n2
-    i  = i + 1
+#    i  = i + 1
 
 #[wall_f] = geompy.SubShapes(simply_tesla_n, [13])
 
@@ -302,12 +306,12 @@ NETGEN_2D_Parameters_1 = NETGEN_1D_2D.Parameters()
 NETGEN_2D_Parameters_1.SetSecondOrder( 0 )
 NETGEN_2D_Parameters_1.SetOptimize( 1 )
 NETGEN_2D_Parameters_1.SetFineness( 4 )
-NETGEN_2D_Parameters_1.SetGrowthRate( 0.01)
+NETGEN_2D_Parameters_1.SetGrowthRate( 0.0125)
 NETGEN_2D_Parameters_1.SetChordalError( -1 )
 NETGEN_2D_Parameters_1.SetChordalErrorEnabled( 0 )
 NETGEN_2D_Parameters_1.SetUseSurfaceCurvature( 1 )
 NETGEN_2D_Parameters_1.SetFuseEdges( 1 )
-NETGEN_2D_Parameters_1.SetQuadAllowed( 1 )
+#NETGEN_2D_Parameters_1.SetQuadAllowed( 1 )
 
 Viscous_Layers_2D_1 = NETGEN_1D_2D.ViscousLayers2D(1,3,1.1, list_ID,1)
 #[ wall_f_1 ] = Mesh_1.GetGroups()
@@ -320,7 +324,7 @@ Viscous_Layers_2D_1.SetEdges(list_ID , 1 )
 # плотность сетки
 NETGEN_2D_Parameters_1.SetMinSize( min_size )
 NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, min_size)
-NETGEN_2D_Parameters_1.SetLocalSizeOnShape(box_e_o, min_size)
+#NETGEN_2D_Parameters_1.SetLocalSizeOnShape(box_e_o, min_size)
 NETGEN_2D_Parameters_1.SetMaxSize( max_size )
 
 #NETGEN_2D_Parameters_1.SetWorstElemMeasure( 24853 )

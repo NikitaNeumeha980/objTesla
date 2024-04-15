@@ -21,8 +21,11 @@ from salome.geom import geomBuilder
 import math
 import SALOMEDS
 
+#для построения половины сетки в продольном сечении i = 1, иначе i = 0
+i = 1
+
 # угол наклона ушка
-alpha = 45
+alpha = 60
 
 # кол-во ушек
 num = 3
@@ -46,19 +49,19 @@ step_k = 2
 step = box_L1 / (math.sin((90-alpha)*math.pi/180.0))
 
 # длина отводящей магистрали
-box_h = w + box_L1 + w * 10
+box_h = w + 0.5 * box_L1 + w * 50
 
 # длина основной магистрали
 L = (w + box_L1) * (num * step_k) + alpha * 0.25 * w
 
 # шаг для box_mesh
-step_box = (box_L1 / 2) / (math.sin((90-alpha)*math.pi/180.0))
+step_box = box_L1 / (math.sin((90-alpha)*math.pi/180.0))
 
 # размер бокса по X
 box_mesh_X = (w / (math.sin((90-alpha)*math.pi/180.0))) * 1.5
 
 # ось вращения
-rot = 0.3
+rot = 0.25
 
 # плотность сетки
 min_size = 0.25
@@ -74,16 +77,39 @@ OZ = geompy.MakeVectorDXDYDZ(0, 0, 1)
 # основной канал
 Box_1 = geompy.MakeBoxDXDYDZ(L, w, w)
 
-Box_2 = geompy.MakeBoxDXDYDZ(box_L1, w, box_h)
-Cylinder_1 = geompy.MakeCylinder(O, OY, r1, w)
-geompy.TranslateDXDYDZ(Cylinder_1, r1, 0, box_h)
-Fuse_1 = geompy.MakeFuseList([Box_2, Cylinder_1], True, True)
-geompy.TranslateDXDYDZ(Fuse_1, rot * L , 0, w * (-10))
+# Внешнее ухо
+Fuse_1 = geompy.MakeFuseList(
+    [
+        geompy.MakeBoxDXDYDZ(box_L1, w, box_h),
+        geompy.TranslateDXDYDZ(geompy.MakeCylinder(O, OY, r1, w), r1, 0, box_h)
+    ],
+    True,
+    True
+    )
+
+geompy.TranslateDXDYDZ(Fuse_1, rot * L , 0, -box_h)
 
 # ось поворота "ушек"
-Vertex_1 = geompy.MakeVertex(rot * L + r1, 0, w)
-Vertex_2 = geompy.MakeVertex(rot * L + r1, w, w)
+Vertex_1 = geompy.MakeVertex(rot * L + 2 * r1, 0, w)
+Vertex_2 = geompy.MakeVertex(rot * L + 2 * r1, w, w)
 Line_1 = geompy.MakeLineTwoPnt(Vertex_1, Vertex_2)
+
+# ось поворота бокса для обрезания внутреннего "ушка"
+Line_1_1 = geompy.MakeTranslation(
+    Line_1,
+    - ((2 * r1) /  (math.sin((90-alpha)*math.pi/180.0)) - w /  (math.sin((90-alpha)*math.pi/180.0))),
+    0,
+    0,
+    )
+geompy.addToStudy( Line_1_1, 'Line_1_1')
+
+# бокс для обрезания внетренненго уха
+boxTOcut = geompy.MakeRotation(
+    geompy.MakeTranslation(geompy.MakeBoxDXDYDZ(3 * L, w, w * 1000), 0, 0, -1 * (w * 1000 - w)),
+    Line_1_1,
+    -0.1 * alpha*math.pi/180.0
+    )
+geompy.addToStudy( boxTOcut, 'boxTOcut')
 
 # ось отражения для случаев когда кол-во "ушек" > 1
 Vertex_3 = geompy.MakeVertex(0, 0.5 * w, 0.5 * w)
@@ -93,15 +119,33 @@ Line_2 = geompy.MakeLineTwoPnt(Vertex_3, Vertex_4)
 # поворот "уха"
 Rotation_1 = geompy.MakeRotation(Fuse_1, Line_1, alpha*math.pi/180.0)
 
-Box_3 = geompy.MakeBoxDXDYDZ(box_L2, w, box_h)
-Cylinder_2 = geompy.MakeCylinder(O, OY, r2, w)
-Translation_1 = geompy.MakeTranslation(Cylinder_2, r2, 0, box_h)
-Fuse_2 = geompy.MakeFuseList([Box_3, Translation_1], True, True)
-Translation_2 = geompy.MakeTranslation(Fuse_2, rot * L  + (r1 - r2), 0, w * (-10))
-Rotation_2 = geompy.MakeRotation(Translation_2, Line_1, alpha*math.pi/180.0)
-Cut_1 = geompy.MakeCutList(Rotation_1, [Rotation_2], True)
-Box_4 = geompy.MakeBoxDXDYDZ(3 * L, w, w * 1000)
-Translation_3 = geompy.MakeTranslation(Box_4, -0.5 * (3 * L) , 0, -1 * (w * 1000 - w))
+# Внутреннее ухо
+Fuse_2 = geompy.MakeFuseList(
+    [
+        geompy.MakeBoxDXDYDZ(box_L2, w, box_h),
+        geompy.MakeTranslation(geompy.MakeCylinder(O, OY, r2, w), r2, 0, box_h)
+    ],
+    True,
+    True
+    )
+
+Rotation_2 = geompy.MakeRotation(
+    geompy.MakeTranslation(Fuse_2, rot * L  + (r1 - r2), 0, -box_h),
+    Line_1,
+    alpha*math.pi/180.0
+    )
+
+# обрезание внутреннего уха
+cut_in = geompy.MakeCutList(Rotation_2, [boxTOcut], True)
+
+Cut_1 = geompy.MakeCutList(Rotation_1, [cut_in], True)
+
+Translation_3 = geompy.MakeTranslation(
+    geompy.MakeBoxDXDYDZ(3 * L, w, w * 1000),
+    -0.5 * (3 * L) ,
+    0,
+    -1 * (w * 1000 - w)
+    )
 
 #
 Cut_2 = geompy.MakeCutList(Cut_1, [Translation_3], True)
@@ -116,8 +160,6 @@ smooth=\
         geompy.ShapeType["EDGE"],
         GEOM.ST_IN
         )
-#sm_box = geompy.MakeBox(w, w, w, L - w, 0, 0)
-#geompy.addToStudy(sm_box, 'sm_box')
 
 #сглаживание
 Cut_2 =\
@@ -127,11 +169,6 @@ Cut_2 =\
     True
     )
 simply_tesla = geompy.MakeFuseList([Box_1, Cut_2], True, True)
-
-# плоскости для граничных условий
-wall_b = geompy.MakePlane(Vertex_2, OY, 2000 + L)
-ent = geompy.MakePlane(O, OX, 2000 + L)
-out = geompy.MakeTranslation(ent, L, 0, 0)
 
  # зона усложненной сетки
 box_split =\
@@ -164,10 +201,6 @@ t_box_mix = geompy.MakeTranslation(
 
 simply_box = geompy.MakeFuseList ([t_box_mix, t_box_split], True, True)
 
-box_ent = geompy.MakeBox(-w, w * 2, 0, w, -(w * 2), w)
-box_out = geompy.MakeTranslation(box_ent, L, 0, 0)
-box_e_o = geompy.MakeFuseList([box_ent, box_out])
-
 # цикл создания более одного уха
 i = 1
 Cut_n = Cut_2
@@ -198,43 +231,91 @@ for i in range(num - 1):
 
 #[wall_f] = geompy.SubShapes(simply_tesla_n, [13])
 
-[wall_f] =\
-    geompy.GetShapesOnPlaneWithLocation(
-        simply_tesla_num,
-        geompy.ShapeType["FACE"],
-        geompy.MakeVectorDXDYDZ(0, 1, 0),
-        geompy.MakeVertex(0, 0, 0),
-        GEOM.ST_ON
+simply_tesla_half = geompy.MakeCutList(
+    simply_tesla_num,
+    [
+        geompy.MakeBox(-w, w * 0.5, 0, L + w, w * 2, L)
+    ],
+    True
     )
 
+# плоскости для граничных условий
 
-geompy.addToStudy( simply_tesla_num, 'simply_tesla_num')
-geompy.addToStudyInFather( simply_tesla_num, wall_f, 'wall_f' )
+if i == 1:
+    [wall_f] =\
+        geompy.GetShapesOnPlaneWithLocation(
+            simply_tesla_half,
+            geompy.ShapeType["FACE"],
+            geompy.MakeVectorDXDYDZ(0, 1, 0),
+            geompy.MakeVertex(0, 0, 0),
+            GEOM.ST_ON
+        )
+    wall_b = geompy.MakeTranslation(wall_f, 0, w * 0.5, 0)
+    # получение ID объектов для вычета их из построения вязкого подслоя сетки
+    # направлением для нормали будет ось Х
+    ent_ID =\
+        geompy.GetShapesOnPlaneWithLocation(
+            wall_f,
+            geompy.ShapeType["EDGE"],
+            geompy.MakeVectorDXDYDZ(1, 0, 0),
+            geompy.MakeVertex(0, 0, 0),
+            GEOM.ST_ON
+        )
+    out_ID =\
+        geompy.GetShapesOnPlaneWithLocation(
+            wall_f,
+            geompy.ShapeType["EDGE"],
+            geompy.MakeVectorDXDYDZ(1, 0, 0),
+            geompy.MakeVertex(L, 0, 0),
+            GEOM.ST_ON
+        )
+    list_ID =\
+    [
+        geompy.GetSubShapeID(simply_tesla_half, ent_ID[0]),
+        geompy.GetSubShapeID(simply_tesla_half, out_ID[0])
+    ]
 
-# получение ID объектов для вычета их из построения вязкого подслоя сетки
-# направлением для нормали будет ось Х
-ent_ID =\
-    geompy.GetShapesOnPlaneWithLocation(
-        wall_f,
-        geompy.ShapeType["EDGE"],
-        geompy.MakeVectorDXDYDZ(1, 0, 0),
-        geompy.MakeVertex(0, 0, 0),
-        GEOM.ST_ON
-    )
-out_ID =\
-    geompy.GetShapesOnPlaneWithLocation(
-        wall_f,
-        geompy.ShapeType["EDGE"],
-        geompy.MakeVectorDXDYDZ(1, 0, 0),
-        geompy.MakeVertex(L, 0, 0),
-        GEOM.ST_ON
-    )
-
-list_ID =\
+if i == 0:
+    [wall_f] =\
+        geompy.GetShapesOnPlaneWithLocation(
+            simply_tesla_num,
+            geompy.ShapeType["FACE"],
+            geompy.MakeVectorDXDYDZ(0, 1, 0),
+            geompy.MakeVertex(0, 0, 0),
+            GEOM.ST_ON
+        )
+    wall_b = geompy.MakeTranslation(wall_f, 0, w, 0)
+    # получение ID объектов для вычета их из построения вязкого подслоя сетки
+    # направлением для нормали будет ось Х
+    ent_ID =\
+        geompy.GetShapesOnPlaneWithLocation(
+            wall_f,
+            geompy.ShapeType["EDGE"],
+            geompy.MakeVectorDXDYDZ(1, 0, 0),
+            geompy.MakeVertex(0, 0, 0),
+            GEOM.ST_ON
+        )
+    out_ID =\
+        geompy.GetShapesOnPlaneWithLocation(
+            wall_f,
+            geompy.ShapeType["EDGE"],
+            geompy.MakeVectorDXDYDZ(1, 0, 0),
+            geompy.MakeVertex(L, 0, 0),
+            GEOM.ST_ON
+        )
+    list_ID =\
     [
         geompy.GetSubShapeID(simply_tesla_num, ent_ID[0]),
         geompy.GetSubShapeID(simply_tesla_num, out_ID[0])
     ]
+
+ent = geompy.MakePlane(O, OX, 2000 + L)
+out = geompy.MakeTranslation(ent, L, 0, 0)
+
+
+geompy.addToStudy( simply_tesla_half, 'simply_tesla_half')
+geompy.addToStudy( simply_tesla_num, 'simply_tesla_num')
+geompy.addToStudyInFather( simply_tesla_num, wall_f, 'wall_f' )
 
 geompy.addToStudy( O, 'O' )
 geompy.addToStudy( OX, 'OX' )
@@ -242,29 +323,29 @@ geompy.addToStudy( OY, 'OY' )
 geompy.addToStudy( OZ, 'OZ' )
 #geompy.addToStudy( Box_2, 'Box_2' )
 #geompy.addToStudy( Cylinder_1, 'Cylinder_1' )
-#geompy.addToStudy( Fuse_1, 'Fuse_1' )
-#geompy.addToStudy( Box_1, 'Box_1' )
-#geompy.addToStudy( Vertex_1, 'Vertex_1' )
-#geompy.addToStudy( Vertex_2, 'Vertex_2' )
-#geompy.addToStudy( Line_1, 'Line_1' )
-#geompy.addToStudy( Vertex_3, 'Vertex_3' )
-#geompy.addToStudy( Vertex_4, 'Vertex_4' )
-#geompy.addToStudy( Line_2, 'Line_2' )
-#geompy.addToStudy( Rotation_1, 'Rotation_1' )
+geompy.addToStudy( Fuse_1, 'Fuse_1' )
+geompy.addToStudy( Box_1, 'Box_1' )
+geompy.addToStudy( Vertex_1, 'Vertex_1' )
+geompy.addToStudy( Vertex_2, 'Vertex_2' )
+geompy.addToStudy( Line_1, 'Line_1' )
+geompy.addToStudy( Vertex_3, 'Vertex_3' )
+geompy.addToStudy( Vertex_4, 'Vertex_4' )
+geompy.addToStudy( Line_2, 'Line_2' )
+geompy.addToStudy( Rotation_1, 'Rotation_1' )
 #geompy.addToStudy( Box_3, 'Box_3' )
 #geompy.addToStudy( Cylinder_2, 'Cylinder_2' )
 #geompy.addToStudy( Translation_1, 'Translation_1' )
-#geompy.addToStudy( Fuse_2, 'Fuse_2' )
+geompy.addToStudy( Fuse_2, 'Fuse_2' )
 #geompy.addToStudy( Translation_2, 'Translation_2' )
-#geompy.addToStudy( Rotation_2, 'Rotation_2' )
-#geompy.addToStudy( Cut_1, 'Cut_1' )
+geompy.addToStudy( Rotation_2, 'Rotation_2' )
+geompy.addToStudy( Cut_1, 'Cut_1' )
 #geompy.addToStudy( Box_4, 'Box_4' )
-#geompy.addToStudy( Translation_3, 'Translation_3' )
-#geompy.addToStudy( Cut_2, 'Cut_2' )
-#geompy.addToStudy( simply_tesla, 'simply_tesla')
-#geompy.addToStudy( Mirror_n, 'Mirror_n' )
-#geompy.addToStudy( Mirror_n2, 'Mirror_n2' )
-#geompy.addToStudy( simply_tesla_n, 'simply_tesla_n')
+geompy.addToStudy( Translation_3, 'Translation_3' )
+geompy.addToStudy( Cut_2, 'Cut_2' )
+geompy.addToStudy( simply_tesla, 'simply_tesla')
+geompy.addToStudy( Mirror_n, 'Mirror_n' )
+geompy.addToStudy( Mirror_n2, 'Mirror_n2' )
+geompy.addToStudy( simply_tesla_n, 'simply_tesla_n')
 #geompy.addToStudy( simply_tesla_num, 'simply_tesla_num')
 geompy.addToStudy( box_split, 'box_split')
 geompy.addToStudy( t_box_split, 't_box_split')
@@ -273,8 +354,8 @@ geompy.addToStudy( t_box_mix, 't_box_mix')
 geompy.addToStudy( t_box_mix_mirr, 't_box_mix_mirr')
 geompy.addToStudy( t_box_split_mirr, 't_box_split_mirr')
 geompy.addToStudy( simply_box_num, 'simply_box_num')
-geompy.addToStudy(box_e_o, 'box_e_o')
-geompy.addToStudy( wall_f, 'wall_f' )
+#geompy.addToStudy(box_e_o, 'box_e_o')
+#geompy.addToStudy( wall_f, 'wall_f' )
 geompy.addToStudy( wall_b, 'wall_b' )
 geompy.addToStudy( ent, 'ent' )
 geompy.addToStudy( out, 'out' )
@@ -289,88 +370,128 @@ from salome.smesh import smeshBuilder
 
 smesh = smeshBuilder.New()
 #smesh.SetEnablePublish( False ) # Set to False to avoid publish in study if not needed or in some particular situations:
-                                 # multiples meshes built in parallel, complex and numerous mesh edition (performance)
 
-Mesh_1 = smesh.Mesh(simply_tesla_num,'Mesh_1')
-Regular_1D = Mesh_1.Segment()
+ # multiples meshes built in parallel, complex and numerous mesh edition (performance)
+NumOfSegments = 20
 
-# распределение слоев выдавливания
-Number_of_Segments_1 = Regular_1D.NumberOfSegments(10,None,[])
-Number_of_Segments_1.SetConversionMode( 1 )
-Number_of_Segments_1.SetTableFunction( [ 0, 1, 0.05, 0.25, 0.5, 0.1, 0.95, 0.25, 1, 1 ] )
-Prism_3D = Mesh_1.Prism()
+if i == 0:
+    Mesh_1 = smesh.Mesh(simply_tesla_num,'Mesh_1')
+    Regular_1D = Mesh_1.Segment()
 
-wall_f_1 = Mesh_1.GroupOnGeom(wall_f,'wall_f',SMESH.FACE)
-NETGEN_1D_2D = Mesh_1.Triangle(algo=smeshBuilder.NETGEN_1D2D,geom=wall_f)
-NETGEN_2D_Parameters_1 = NETGEN_1D_2D.Parameters()
-NETGEN_2D_Parameters_1.SetSecondOrder( 0 )
-NETGEN_2D_Parameters_1.SetOptimize( 1 )
-NETGEN_2D_Parameters_1.SetFineness( 4 )
-NETGEN_2D_Parameters_1.SetGrowthRate( 0.0125)
-NETGEN_2D_Parameters_1.SetChordalError( -1 )
-NETGEN_2D_Parameters_1.SetChordalErrorEnabled( 0 )
-NETGEN_2D_Parameters_1.SetUseSurfaceCurvature( 1 )
-NETGEN_2D_Parameters_1.SetFuseEdges( 1 )
-#NETGEN_2D_Parameters_1.SetQuadAllowed( 1 )
+    # распределение слоев выдавливания
+    Number_of_Segments_1 = Regular_1D.NumberOfSegments(NumOfSegments,None,[])
+    Number_of_Segments_1.SetConversionMode( 1 )
+    Number_of_Segments_1.SetTableFunction( [ 0, 1, 0.05, 0.25, 0.5, 0.1, 0.95, 0.25, 1, 1 ] )
+    Prism_3D = Mesh_1.Prism()
 
-Viscous_Layers_2D_1 = NETGEN_1D_2D.ViscousLayers2D(1,3,1.1, list_ID,1)
-#[ wall_f_1 ] = Mesh_1.GetGroups()
-Viscous_Layers_2D_1.SetTotalThickness( 0.1 )
-Viscous_Layers_2D_1.SetNumberLayers( 3 )
-Viscous_Layers_2D_1.SetStretchFactor( 1 )
-Viscous_Layers_2D_1.SetEdges(list_ID , 1 )
+    wall_f_1 = Mesh_1.GroupOnGeom(wall_f,'wall_f',SMESH.FACE)
+    NETGEN_1D_2D = Mesh_1.Triangle(algo=smeshBuilder.NETGEN_1D2D,geom=wall_f)
+    NETGEN_2D_Parameters_1 = NETGEN_1D_2D.Parameters()
+    NETGEN_2D_Parameters_1.SetSecondOrder( 0 )
+    NETGEN_2D_Parameters_1.SetOptimize( 1 )
+    NETGEN_2D_Parameters_1.SetFineness( 4 )
+    NETGEN_2D_Parameters_1.SetGrowthRate( 0.0125)
+    NETGEN_2D_Parameters_1.SetChordalError( -1 )
+    NETGEN_2D_Parameters_1.SetChordalErrorEnabled( 0 )
+    NETGEN_2D_Parameters_1.SetUseSurfaceCurvature( 1 )
+    NETGEN_2D_Parameters_1.SetFuseEdges( 1 )
+    #NETGEN_2D_Parameters_1.SetQuadAllowed( 1 )
 
-#[ wall_f_1 ] = Mesh_1.GetGroups()
-# плотность сетки
-NETGEN_2D_Parameters_1.SetMinSize( min_size )
-NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, min_size)
-#NETGEN_2D_Parameters_1.SetLocalSizeOnShape(box_e_o, min_size)
-NETGEN_2D_Parameters_1.SetMaxSize( max_size )
+    Viscous_Layers_2D_1 = NETGEN_1D_2D.ViscousLayers2D(1,3,1.1, list_ID,1)
+    Viscous_Layers_2D_1.SetTotalThickness( 0.1 )
+    Viscous_Layers_2D_1.SetNumberLayers( 3 )
+    Viscous_Layers_2D_1.SetStretchFactor( 1 )
+    Viscous_Layers_2D_1.SetEdges(list_ID , 1 )
 
-#NETGEN_2D_Parameters_1.SetWorstElemMeasure( 24853 )
-#NETGEN_2D_Parameters_1.SetUseDelauney( 192 )
-#NETGEN_2D_Parameters_1.SetCheckChartBoundary( 3 )
+    # плотность сетки
+    NETGEN_2D_Parameters_1.SetMinSize( min_size )
+    NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, min_size)
+    NETGEN_2D_Parameters_1.SetMaxSize( max_size )
+    isDone = Mesh_1.Compute()
 
-#[ wall_f_1 ] = Mesh_1.GetGroups()
-isDone = Mesh_1.Compute()
-#[ wall_f_1 ] = Mesh_1.GetGroups()
-#Viscous_Layers_2D_1.SetTotalThickness( 0.01 )
-#Viscous_Layers_2D_1.SetNumberLayers( 3 )
-#Viscous_Layers_2D_1.SetStretchFactor( 1 )
-#Viscous_Layers_2D_1.SetEdges( list_ID, 1 )
-#[ wall_f_1 ] = Mesh_1.GetGroups()
-#aCriteria = []
-#aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,wall_f)
-#aCriteria.append(aCriterion)
-#aFilter_1 = smesh.GetFilterFromCriteria(aCriteria)
-#aFilter_1.SetMesh(Mesh_1.GetMesh())
-#wall_f_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'wall_f', aFilter_1 )
-#[ wall_f_1, wall_f_1 ] = Mesh_1.GetGroups()
+    aCriteria = []
+    aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,wall_b)
+    aCriteria.append(aCriterion)
+    aFilter_2 = smesh.GetFilterFromCriteria(aCriteria)
+    aFilter_2.SetMesh(Mesh_1.GetMesh())
+    wall_b_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'wall_b', aFilter_2 )
+    [ wall_f_1, wall_b_1 ] = Mesh_1.GetGroups()
 
-aCriteria = []
-aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,wall_b)
-aCriteria.append(aCriterion)
-aFilter_2 = smesh.GetFilterFromCriteria(aCriteria)
-aFilter_2.SetMesh(Mesh_1.GetMesh())
-wall_b_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'wall_b', aFilter_2 )
-[ wall_f_1, wall_b_1 ] = Mesh_1.GetGroups()
+    aCriteria = []
+    aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,ent)
+    aCriteria.append(aCriterion)
+    aFilter_3 = smesh.GetFilterFromCriteria(aCriteria)
+    aFilter_3.SetMesh(Mesh_1.GetMesh())
+    ent_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'ent', aFilter_3 )
+    [ wall_f_1, wall_b_1, ent_1 ] = Mesh_1.GetGroups()
 
-aCriteria = []
-aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,ent)
-aCriteria.append(aCriterion)
-aFilter_3 = smesh.GetFilterFromCriteria(aCriteria)
-aFilter_3.SetMesh(Mesh_1.GetMesh())
-ent_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'ent', aFilter_3 )
-[ wall_f_1, wall_b_1, ent_1 ] = Mesh_1.GetGroups()
+    aCriteria = []
+    aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,out)
+    aCriteria.append(aCriterion)
+    aFilter_4 = smesh.GetFilterFromCriteria(aCriteria)
+    aFilter_4.SetMesh(Mesh_1.GetMesh())
+    out_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'out', aFilter_4 )
+    [ wall_f_1, wall_b_1, ent_1, out_1 ] = Mesh_1.GetGroups()
 
-aCriteria = []
-aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,out)
-aCriteria.append(aCriterion)
-aFilter_4 = smesh.GetFilterFromCriteria(aCriteria)
-aFilter_4.SetMesh(Mesh_1.GetMesh())
-out_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'out', aFilter_4 )
-[ wall_f_1, wall_b_1, ent_1, out_1 ] = Mesh_1.GetGroups()
+if i == 1:
+    NumOfSegments = NumOfSegments // 2
+    Mesh_1 = smesh.Mesh(simply_tesla_half,'Mesh_1')
+    Regular_1D = Mesh_1.Segment()
 
+    # распределение слоев выдавливания
+    Number_of_Segments_1 = Regular_1D.NumberOfSegments(NumOfSegments, None, [])
+    Number_of_Segments_1.SetConversionMode( 1 )
+    Number_of_Segments_1.SetTableFunction( [ 0, 1, 0.05, 0.25, 0.5, 0.1, 0.95, 0.25, 1, 1 ] )
+    Prism_3D = Mesh_1.Prism()
+
+    wall_f_1 = Mesh_1.GroupOnGeom(wall_f,'wall_f',SMESH.FACE)
+    NETGEN_1D_2D = Mesh_1.Triangle(algo=smeshBuilder.NETGEN_1D2D,geom=wall_f)
+    NETGEN_2D_Parameters_1 = NETGEN_1D_2D.Parameters()
+    NETGEN_2D_Parameters_1.SetSecondOrder( 0 )
+    NETGEN_2D_Parameters_1.SetOptimize( 1 )
+    NETGEN_2D_Parameters_1.SetFineness( 4 )
+    NETGEN_2D_Parameters_1.SetGrowthRate( 0.0125)
+    NETGEN_2D_Parameters_1.SetChordalError( -1 )
+    NETGEN_2D_Parameters_1.SetChordalErrorEnabled( 0 )
+    NETGEN_2D_Parameters_1.SetUseSurfaceCurvature( 1 )
+    NETGEN_2D_Parameters_1.SetFuseEdges( 1 )
+    #NETGEN_2D_Parameters_1.SetQuadAllowed( 1 )
+
+    Viscous_Layers_2D_1 = NETGEN_1D_2D.ViscousLayers2D(1,3,1.1, list_ID,1)
+
+    Viscous_Layers_2D_1.SetTotalThickness( 0.1 )
+    Viscous_Layers_2D_1.SetNumberLayers( 3 )
+    Viscous_Layers_2D_1.SetStretchFactor( 1 )
+    Viscous_Layers_2D_1.SetEdges(list_ID , 1 )
+
+    # плотность сетки
+    NETGEN_2D_Parameters_1.SetMinSize( min_size )
+    NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, min_size)
+    NETGEN_2D_Parameters_1.SetMaxSize( max_size )
+    isDone = Mesh_1.Compute()
+    aCriteria = []
+    aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,wall_b)
+    aCriteria.append(aCriterion)
+    aFilter_2 = smesh.GetFilterFromCriteria(aCriteria)
+    aFilter_2.SetMesh(Mesh_1.GetMesh())
+    wall_b_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'wall_b', aFilter_2 )
+    [ wall_f_1, wall_b_1 ] = Mesh_1.GetGroups()
+
+    aCriteria = []
+    aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,ent)
+    aCriteria.append(aCriterion)
+    aFilter_3 = smesh.GetFilterFromCriteria(aCriteria)
+    aFilter_3.SetMesh(Mesh_1.GetMesh())
+    ent_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'ent', aFilter_3 )
+    [ wall_f_1, wall_b_1, ent_1 ] = Mesh_1.GetGroups()
+
+    aCriteria = []
+    aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,out)
+    aCriteria.append(aCriterion)
+    aFilter_4 = smesh.GetFilterFromCriteria(aCriteria)
+    aFilter_4.SetMesh(Mesh_1.GetMesh())
+    out_1 = Mesh_1.GroupOnFilter( SMESH.FACE, 'out', aFilter_4 )
+    [ wall_f_1, wall_b_1, ent_1, out_1 ] = Mesh_1.GetGroups()
 #Sub_mesh_1 = NETGEN_1D_2D.GetSubMesh()
 
 ### Set names of Mesh objects

@@ -28,10 +28,10 @@ i = 1
 alpha = 60
 
 # кол-во ушек
-num = 3
+num = 4
 
 # ширина канала
-w = 10
+w = 100 #мкм
 
 # внутренний радиус отводящего ушка
 k = 2
@@ -49,7 +49,7 @@ step_k = 2
 step = box_L1 / (math.sin((90-alpha)*math.pi/180.0))
 
 # длина отводящей магистрали
-box_h = w + 0.5 * box_L1 + w * 50
+box_h = w + 0.5 * box_L1 + w * 100
 
 # длина основной магистрали
 L = (w + box_L1) * (num * step_k) + alpha * 0.25 * w
@@ -64,8 +64,8 @@ box_mesh_X = (w / (math.sin((90-alpha)*math.pi/180.0))) * 1.5
 rot = 0.25
 
 # плотность сетки
-min_size = 0.25
-max_size = 0.75
+min_size = 2.5
+max_size = 6
 
 geompy = geomBuilder.New()
 
@@ -103,7 +103,7 @@ Line_1_1 = geompy.MakeTranslation(
     )
 geompy.addToStudy( Line_1_1, 'Line_1_1')
 
-# бокс для обрезания внетренненго уха
+# бокс для обрезания внутреннего уха
 boxTOcut = geompy.MakeRotation(
     geompy.MakeTranslation(geompy.MakeBoxDXDYDZ(3 * L, w, w * 1000), 0, 0, -1 * (w * 1000 - w)),
     Line_1_1,
@@ -138,6 +138,9 @@ Rotation_2 = geompy.MakeRotation(
 # обрезание внутреннего уха
 cut_in = geompy.MakeCutList(Rotation_2, [boxTOcut], True)
 
+#Сглаживание для внутреннего уха
+
+
 Cut_1 = geompy.MakeCutList(Rotation_1, [cut_in], True)
 
 Translation_3 = geompy.MakeTranslation(
@@ -150,21 +153,47 @@ Translation_3 = geompy.MakeTranslation(
 #
 Cut_2 = geompy.MakeCutList(Cut_1, [Translation_3], True)
 
-#
 simply_tesla = geompy.MakeFuseList([Box_1, Cut_2], True, True)
-# грани для сглаживания на основное ухо
-smooth=\
+
+## грани для сглаживания на основное ухо
+#smooth=\
+    #geompy.GetShapesOnBoxIDs(
+        #geompy.MakeBox(w, w, w + 1, L - w, 0, 0),
+        #simply_tesla,
+        #geompy.ShapeType["EDGE"],
+        #GEOM.ST_IN
+        #)
+
+##сглаживание
+#Cut_2 =\
+    #geompy.MakeCutList(
+    #geompy.MakeFillet(simply_tesla, w * 0.5, geompy.ShapeType["EDGE"], smooth),
+    #[Translation_3],
+    #True
+    #)
+#simply_tesla = geompy.MakeFuseList([Box_1, Cut_2], True, True)
+
+# сглаживание на внешнее ухо (большой угол)
+smooth2 =\
     geompy.GetShapesOnBoxIDs(
-        geompy.MakeBox(w, w, w + 1, L - w, 0, 0),
-        simply_tesla,
-        geompy.ShapeType["EDGE"],
-        GEOM.ST_IN
-        )
+    geompy.MakeBox(
+        (L * rot - 1) - r1 / (math.sin((90-alpha)*math.pi/180.0)),
+        w,
+        w + 1,
+        (L * rot + 1) - r1 / (math.sin((90-alpha)*math.pi/180.0)),
+        0,
+        0
+        ),
+    simply_tesla,
+    geompy.ShapeType["EDGE"],
+    GEOM.ST_IN
+    )
+print(smooth2)
 
 #сглаживание
 Cut_2 =\
     geompy.MakeCutList(
-    geompy.MakeFillet(simply_tesla, w * 0.5, geompy.ShapeType["EDGE"], smooth),
+    geompy.MakeFillet(simply_tesla, w * 15, geompy.ShapeType["EDGE"], smooth2),
     [Translation_3],
     True
     )
@@ -194,7 +223,7 @@ box_mix =\
     )
 t_box_mix = geompy.MakeTranslation(
     box_mix,
-    step_box - (w / (math.sin((90-alpha)*math.pi/180.0))) * 0.5,
+    0,
     -w,
     -(w * 0.5)
     )
@@ -202,14 +231,14 @@ t_box_mix = geompy.MakeTranslation(
 simply_box = geompy.MakeFuseList ([t_box_mix, t_box_split], True, True)
 
 # цикл создания более одного уха
-i = 1
+
 Cut_n = Cut_2
 simply_tesla_n = simply_tesla
 t_box_split_mirr = t_box_split
 t_box_mix_mirr = t_box_mix
 simply_box_n = simply_box
 #while i < num:
-for i in range(num - 1):
+for R in range(num - 1):
     Mirror_n = geompy.MakeMirrorByAxis(Cut_n, Line_2)
     Mirror_n2 = geompy.MakeTranslation(Mirror_n, step, 0, 0)
     simply_tesla_num = geompy.MakeFuseList([simply_tesla_n, Mirror_n2], True, True)
@@ -231,17 +260,18 @@ for i in range(num - 1):
 
 #[wall_f] = geompy.SubShapes(simply_tesla_n, [13])
 
-simply_tesla_half = geompy.MakeCutList(
-    simply_tesla_num,
-    [
-        geompy.MakeBox(-w, w * 0.5, 0, L + w, w * 2, L)
-    ],
-    True
-    )
 
 # плоскости для граничных условий
 
 if i == 1:
+    simply_tesla_half = geompy.MakeCutList(
+    simply_tesla_num,
+    [
+        geompy.MakeBox(-w, w * 0.5, -L, L + w, w * 2, L)
+    ],
+    True
+    )
+
     [wall_f] =\
         geompy.GetShapesOnPlaneWithLocation(
             simply_tesla_half,
@@ -274,6 +304,8 @@ if i == 1:
         geompy.GetSubShapeID(simply_tesla_half, ent_ID[0]),
         geompy.GetSubShapeID(simply_tesla_half, out_ID[0])
     ]
+    geompy.addToStudy( simply_tesla_half, 'simply_tesla_half')
+    geompy.addToStudyInFather( simply_tesla_half, wall_f, 'wall_f' )
 
 if i == 0:
     [wall_f] =\
@@ -309,13 +341,14 @@ if i == 0:
         geompy.GetSubShapeID(simply_tesla_num, out_ID[0])
     ]
 
+    geompy.addToStudyInFather( simply_tesla_num, wall_f, 'wall_f' )
+
 ent = geompy.MakePlane(O, OX, 2000 + L)
 out = geompy.MakeTranslation(ent, L, 0, 0)
 
 
-geompy.addToStudy( simply_tesla_half, 'simply_tesla_half')
 geompy.addToStudy( simply_tesla_num, 'simply_tesla_num')
-geompy.addToStudyInFather( simply_tesla_num, wall_f, 'wall_f' )
+
 
 geompy.addToStudy( O, 'O' )
 geompy.addToStudy( OX, 'OX' )
@@ -389,8 +422,8 @@ if i == 0:
     NETGEN_2D_Parameters_1 = NETGEN_1D_2D.Parameters()
     NETGEN_2D_Parameters_1.SetSecondOrder( 0 )
     NETGEN_2D_Parameters_1.SetOptimize( 1 )
-    NETGEN_2D_Parameters_1.SetFineness( 4 )
-    NETGEN_2D_Parameters_1.SetGrowthRate( 0.0125)
+    NETGEN_2D_Parameters_1.SetFineness( 5 )
+    NETGEN_2D_Parameters_1.SetGrowthRate( 0.0075)
     NETGEN_2D_Parameters_1.SetChordalError( -1 )
     NETGEN_2D_Parameters_1.SetChordalErrorEnabled( 0 )
     NETGEN_2D_Parameters_1.SetUseSurfaceCurvature( 1 )
@@ -405,7 +438,7 @@ if i == 0:
 
     # плотность сетки
     NETGEN_2D_Parameters_1.SetMinSize( min_size )
-    NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, min_size)
+    NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, 3)
     NETGEN_2D_Parameters_1.SetMaxSize( max_size )
     isDone = Mesh_1.Compute()
 
@@ -441,7 +474,7 @@ if i == 1:
     # распределение слоев выдавливания
     Number_of_Segments_1 = Regular_1D.NumberOfSegments(NumOfSegments, None, [])
     Number_of_Segments_1.SetConversionMode( 1 )
-    Number_of_Segments_1.SetTableFunction( [ 0, 1, 0.05, 0.25, 0.5, 0.1, 0.95, 0.25, 1, 1 ] )
+    Number_of_Segments_1.SetTableFunction( [0, 1, 0.05, 0.25, 0.5, 0.1, 1, 0.1] )
     Prism_3D = Mesh_1.Prism()
 
     wall_f_1 = Mesh_1.GroupOnGeom(wall_f,'wall_f',SMESH.FACE)
@@ -449,8 +482,8 @@ if i == 1:
     NETGEN_2D_Parameters_1 = NETGEN_1D_2D.Parameters()
     NETGEN_2D_Parameters_1.SetSecondOrder( 0 )
     NETGEN_2D_Parameters_1.SetOptimize( 1 )
-    NETGEN_2D_Parameters_1.SetFineness( 4 )
-    NETGEN_2D_Parameters_1.SetGrowthRate( 0.0125)
+    NETGEN_2D_Parameters_1.SetFineness( 5 )
+    NETGEN_2D_Parameters_1.SetGrowthRate( 0.0075)
     NETGEN_2D_Parameters_1.SetChordalError( -1 )
     NETGEN_2D_Parameters_1.SetChordalErrorEnabled( 0 )
     NETGEN_2D_Parameters_1.SetUseSurfaceCurvature( 1 )
@@ -459,16 +492,17 @@ if i == 1:
 
     Viscous_Layers_2D_1 = NETGEN_1D_2D.ViscousLayers2D(1,3,1.1, list_ID,1)
 
-    Viscous_Layers_2D_1.SetTotalThickness( 0.1 )
+    Viscous_Layers_2D_1.SetTotalThickness( 1 )
     Viscous_Layers_2D_1.SetNumberLayers( 3 )
     Viscous_Layers_2D_1.SetStretchFactor( 1 )
     Viscous_Layers_2D_1.SetEdges(list_ID , 1 )
 
     # плотность сетки
     NETGEN_2D_Parameters_1.SetMinSize( min_size )
-    NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, min_size)
+    NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, 3)
     NETGEN_2D_Parameters_1.SetMaxSize( max_size )
     isDone = Mesh_1.Compute()
+
     aCriteria = []
     aCriterion = smesh.GetCriterion(SMESH.FACE,SMESH.FT_BelongToPlane,SMESH.FT_Undefined,wall_b)
     aCriteria.append(aCriterion)

@@ -38,12 +38,12 @@ else:
   mesh_half = 0
 
 # плотность сетки
-max_size = 48
+max_size = 51.2
 #size_special = min_size * 1.1
 #NumOfSegments = 50
 #max_size = 75
-size_special = max_size * 0.45
-min_size = size_special * 0.2
+size_special = max_size * 0.5
+min_size = size_special * 0.5
 
 # Ширина канала
 w = 500 #mkm
@@ -416,7 +416,7 @@ Viscous_Layers_2 = smesh.CreateHypothesis('ViscousLayers')
 #Viscous_Layers_2.SetStretchFactor( 1.1 )
 #Viscous_Layers_2.SetMethod( smeshBuilder.NODE_OFFSET )
 #Viscous_Layers_2.SetFaces( [], 1 )
-NETGEN_1D_2D_3D_1 = smesh.CreateHypothesis( "NETGEN_2D3D" )
+#NETGEN_1D_2D_3D_1 = smesh.CreateHypothesis( "NETGEN_2D3D" )
 Mesh_2 = smesh.Mesh(tesla_valve,'Mesh_2')
 NETGEN_1D_2D = Mesh_2.Triangle(algo=smeshBuilder.NETGEN_1D2D)
 NETGEN_2D_Parameters_1 = NETGEN_1D_2D.Parameters()
@@ -426,12 +426,12 @@ NETGEN_2D_Parameters_1.SetSecondOrder( 0 )
 NETGEN_2D_Parameters_1.SetOptimize( 1 )
 NETGEN_2D_Parameters_1.SetFineness( 5 )
 NETGEN_2D_Parameters_1.SetGrowthRate( 0.015 )
-NETGEN_2D_Parameters_1.SetNbSegPerEdge( 3 )
-#NETGEN_2D_Parameters_1.SetNbSegPerRadius( min_size * 0.5 * w * 0.03 )
+NETGEN_2D_Parameters_1.SetNbSegPerEdge( 2 )
+NETGEN_2D_Parameters_1.SetNbSegPerRadius( (w * 0.04) // 5 )
 NETGEN_2D_Parameters_1.SetChordalError( -1 )
 NETGEN_2D_Parameters_1.SetChordalErrorEnabled( 0 )
 NETGEN_2D_Parameters_1.SetUseSurfaceCurvature( 1 )
-NETGEN_2D_Parameters_1.SetNbSurfOptSteps( 4 )
+NETGEN_2D_Parameters_1.SetNbSurfOptSteps( 5 )
 NETGEN_2D_Parameters_1.SetFuseEdges( 1 )
 NETGEN_2D_Parameters_1.SetQuadAllowed( 0 )
 NETGEN_2D_Parameters_1.SetLocalSizeOnShape(simply_box_num, size_special)
@@ -444,23 +444,32 @@ NETGEN_3D_Parameters_1_1.SetMaxSize( max_size )
 NETGEN_3D_Parameters_1_1.SetMinSize( min_size )
 NETGEN_3D_Parameters_1_1.SetOptimize( 1 )
 NETGEN_3D_Parameters_1_1.SetFineness( 5 )
-NETGEN_3D_Parameters_1_1.SetGrowthRate( 0.025 )
+NETGEN_3D_Parameters_1_1.SetGrowthRate( 0.015 )
 NETGEN_3D_Parameters_1_1.SetLocalSizeOnShape(simply_box_num, size_special)
 NETGEN_3D_Parameters_1_1.SetNbVolOptSteps( 8 )
 NETGEN_3D_Parameters_1_1.SetWorstElemMeasure( 3 )
 NETGEN_3D_Parameters_1_1.SetElemSizeWeight( 0 )
 NETGEN_3D_Parameters_1_1.SetCheckOverlapping( 3 )
 NETGEN_3D_Parameters_1_1.SetCheckChartBoundary( 3 )
-Viscous_Layers_3 = NETGEN_3D.ViscousLayers(
-    min_size * 0.5,2,1.3,list_ID,1,smeshBuilder.NODE_OFFSET,'Viscous Layers'
-)
+#Viscous_Layers_3 = NETGEN_3D.ViscousLayers(
+    #min_size * 0.5,2,1.3,list_ID,1,smeshBuilder.NODE_OFFSET,'Viscous Layers'
+#)
+Viscous_Layers_1 = NETGEN_3D.ViscousLayers(min_size * 0.5,2,1.4,list_ID,1,smeshBuilder.NODE_OFFSET)
 wall_b_2 = Mesh_2.GroupOnGeom(wall_b,'wall_b',SMESH.FACE)
 wall_f_2 = Mesh_2.GroupOnGeom(wall_f,'wall_f',SMESH.FACE)
 ent_2 = Mesh_2.GroupOnGeom(ent,'ent',SMESH.FACE)
 out_2 = Mesh_2.GroupOnGeom(out,'out',SMESH.FACE)
+
+
+
+
+
 isDone = Mesh_2.Compute()
-Viscous_Layers = Mesh_2.GetGroups()[ 4 ]
-[ wall_b_2, wall_f_2, ent_2, out_2, Viscous_Layers ] = Mesh_2.GetGroups()
+
+
+
+#Viscous_Layers = Mesh_2.GetGroups()[ 4 ]
+#[ wall_b_2, wall_f_2, ent_2, out_2, Viscous_Layers ] = Mesh_2.GetGroups()
 
 ###hyp_13.SetLength( 3651.37 ) ### not created Object
 ##NETGEN_3D_Parameters_1 = smesh.CreateHypothesisByAverageLength( 'NETGEN_Parameters', 'NETGENEngine', 3651.37, 0 )

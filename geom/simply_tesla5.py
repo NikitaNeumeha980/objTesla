@@ -38,7 +38,7 @@ else:
   mesh_half = 0
 
 # плотность сетки
-max_size = 51.2
+max_size = 40
 #size_special = min_size * 1.1
 #NumOfSegments = 50
 #max_size = 75

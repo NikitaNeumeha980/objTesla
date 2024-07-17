@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  15 JUL 2024 17:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  17 JUL 2024 12:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -342,6 +342,24 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks27
 \@floatcapt=\box51
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen142
+\captionmargin@=\dimen143
+\captionwidth=\dimen144
+\caption@tempdima=\dimen145
+\caption@indent=\dimen146
+\caption@parindent=\dimen147
+\caption@hangindent=\dimen148
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count196
+\c@continuedfloat=\count197
+Package caption Info: float package is loaded.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
@@ -354,17 +372,17 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count196
-\Gm@cntv=\count197
-\c@Gm@tempcnt=\count198
-\Gm@bindingoffset=\dimen142
-\Gm@wd@mp=\dimen143
-\Gm@odd@mp=\dimen144
-\Gm@even@mp=\dimen145
-\Gm@layoutwidth=\dimen146
-\Gm@layoutheight=\dimen147
-\Gm@layouthoffset=\dimen148
-\Gm@layoutvoffset=\dimen149
+\Gm@cnth=\count198
+\Gm@cntv=\count199
+\c@Gm@tempcnt=\count266
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
 \Gm@dimlist=\toks28
 )
 (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
@@ -372,7 +390,7 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count199
+\l__color_backend_stack_int=\count267
 \l__pdf_internal_box=\box52
 )
 
@@ -382,36 +400,36 @@ LaTeX Warning: Unused global option(s):
 (./teslaValveReport.aux)
 \openout1 = `teslaValveReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Info: Redefining \th on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Info: Redefining \th on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count266
-\scratchdimen=\dimen150
+\scratchcounter=\count268
+\scratchdimen=\dimen157
 \scratchbox=\box53
-\nofMPsegments=\count267
-\nofMParguments=\count268
+\nofMPsegments=\count269
+\nofMParguments=\count270
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count269
-\MPscratchDim=\dimen151
-\MPnumerator=\count270
-\makeMPintoPDFobject=\count271
+\MPscratchCnt=\count271
+\MPscratchDim=\dimen158
+\MPnumerator=\count272
+\makeMPintoPDFobject=\count273
 \everyMPtoPDFconversion=\toks30
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -422,6 +440,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -456,12 +477,12 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -470,12 +491,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <media/teslaValve.png, id=1, 1541.76pt x 513.92pt>
 File: media/teslaValve.png Graphic file (type png)
 <use media/teslaValve.png>
-Package pdftex.def Info: media/teslaValve.png  used on input line 46.
+Package pdftex.def Info: media/teslaValve.png  used on input line 48.
 (pdftex.def)             Requested size: 770.87811pt x 256.95937pt.
 <media/teslaMesh1.jpeg, id=3, 3854.4pt x 2168.1pt>
 File: media/teslaMesh1.jpeg Graphic file (type jpg)
 <use media/teslaMesh1.jpeg>
-Package pdftex.def Info: media/teslaMesh1.jpeg  used on input line 57.
+Package pdftex.def Info: media/teslaMesh1.jpeg  used on input line 60.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
 
 
@@ -484,7 +505,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <media/teslaMesh2.jpeg, id=4, 3854.4pt x 2168.1pt>
 File: media/teslaMesh2.jpeg Graphic file (type jpg)
 <use media/teslaMesh2.jpeg>
-Package pdftex.def Info: media/teslaMesh2.jpeg  used on input line 66.
+Package pdftex.def Info: media/teslaMesh2.jpeg  used on input line 69.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
 [1
 
@@ -493,39 +514,65 @@ Package pdftex.def Info: media/teslaMesh2.jpeg  used on input line 66.
 <media/dataMonitoringLaminar.jpg, id=17, 1558.77771pt x 815.994pt>
 File: media/dataMonitoringLaminar.jpg Graphic file (type jpg)
 <use media/dataMonitoringLaminar.jpg>
-Package pdftex.def Info: media/dataMonitoringLaminar.jpg  used on input line 10
-8.
+Package pdftex.def Info: media/dataMonitoringLaminar.jpg  used on input line 11
+1.
 (pdftex.def)             Requested size: 469.47049pt x 245.75882pt.
  [3 <./media/dataMonitoringLaminar.jpg>]
 <media/dataMonitoringRAS.jpg, id=27, 1337.3265pt x 765.405pt>
 File: media/dataMonitoringRAS.jpg Graphic file (type jpg)
 <use media/dataMonitoringRAS.jpg>
-Package pdftex.def Info: media/dataMonitoringRAS.jpg  used on input line 134.
+Package pdftex.def Info: media/dataMonitoringRAS.jpg  used on input line 137.
 (pdftex.def)             Requested size: 469.47049pt x 268.68994pt.
- [4 <./media/dataMonitoringRAS.jpg>] [5]
-(./teslaValveReport.aux) ) 
+ [4 <./media/dataMonitoringRAS.jpg>]
+<media/minMesh.jpeg, id=32, 3854.4pt x 2168.1pt>
+File: media/minMesh.jpeg Graphic file (type jpg)
+<use media/minMesh.jpeg>
+Package pdftex.def Info: media/minMesh.jpeg  used on input line 172.
+(pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--199
+
+ []
+
+<media/graphDi1.png, id=33, 873.7443pt x 544.1931pt>
+File: media/graphDi1.png Graphic file (type png)
+<use media/graphDi1.png>
+Package pdftex.def Info: media/graphDi1.png  used on input line 204.
+(pdftex.def)             Requested size: 469.47049pt x 292.40674pt.
+[5 <./media/minMesh.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 209--239
+
+ []
+
+<media/graphDi2.png, id=37, 742.2129pt x 466.8642pt>
+File: media/graphDi2.png Graphic file (type png)
+<use media/graphDi2.png>
+Package pdftex.def Info: media/graphDi2.png  used on input line 244.
+(pdftex.def)             Requested size: 469.47049pt x 295.30853pt.
+[6 <./media/graphDi1.png>] [7 <./media/graphDi2.png>] (./teslaValveReport.aux) 
+) 
 Here is how much of TeX's memory you used:
- 4544 strings out of 479648
- 68611 string characters out of 5886115
- 371338 words of memory out of 5000000
- 22450 multiletter control sequences out of 15000+600000
+ 5842 strings out of 479648
+ 94151 string characters out of 5886115
+ 391397 words of memory out of 5000000
+ 23739 multiletter control sequences out of 15000+600000
  476136 words of font info for 48 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 55i,7n,62p,821b,248s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour
-/lh/lh-t2a/larm1000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour
-/lh/lh-t2a/labx1440.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on teslaValveReport.pdf (5 pages, 3869493 bytes).
+ 55i,10n,63p,853b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1000.600pk
+> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1440.600pk
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb>
+Output written on teslaValveReport.pdf (7 pages, 4673500 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 211 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

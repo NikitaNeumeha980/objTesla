@@ -1,3 +1,8 @@
+Tesla_mesh/
+for test/
+logs/
+plan
+*.odt
 *.med
 *.msh
 *.unv

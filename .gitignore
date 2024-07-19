@@ -7,3 +7,9 @@ plan
 *.msh
 *.unv
 *.cgns
+Tesla_mesh/
+*.ods
+*.ods#
+*.odt
+geom/
+logs/

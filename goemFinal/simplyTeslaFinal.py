@@ -38,7 +38,7 @@ else:
   mesh_half = 0
 
 # плотность сетки
-max_size = 50
+max_size = 40
 #size_special = min_size * 1.1
 #NumOfSegments = 50
 #max_size = 75
@@ -49,7 +49,7 @@ min_size = size_special * 0.5
 w = 500 #mkm
 
 # Угол наклона уха
-alpha = 30
+alpha = 18.75
 
 # кол-во "ушек"
 numSteps = 2
@@ -221,6 +221,7 @@ for filletIDs2 in filletIDs2:
 tesla_valve = geompy.MakeFillet(
     tesla_valve,
     w * 10,
+    #step,
     geompy.ShapeType["EDGE"],
     filletIDs
     )

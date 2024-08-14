@@ -1,0 +1,5 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'teslaValveReport.bib.blg'
+[129] biber:340> INFO - === Ср авг 14, 2024, 13:13:13
+[222] Utils.pm:398> ERROR - Cannot find 'teslaValveReport.bib.bcf'!
+[222] Biber.pm:135> INFO - ERRORS: 1

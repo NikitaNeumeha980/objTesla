@@ -1,0 +1,78 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{JIN20188888}{article}{}
+      \name{author}{4}{}{%
+        {{hash=f8cff7ee52269437238f4735b03c4c95}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={Zhi-jiang},
+           giveni={Z\bibinithyphendelim j\bibinitperiod}}}%
+        {{hash=d6a5070229f15b9bd77b7ad4cc82cd2a}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Zhi-xin},
+           giveni={Z\bibinithyphendelim x\bibinitperiod}}}%
+        {{hash=481283f29908710f997e665c031310b5}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Min-rui},
+           giveni={M\bibinithyphendelim r\bibinitperiod}}}%
+        {{hash=504132d01540f5aefed58e5e14a070c0}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Jin-yuan},
+           giveni={J\bibinithyphendelim y\bibinitperiod}}}%
+      }
+      \strng{namehash}{b49627fd7c8ac1e10c71f48b746bfce3}
+      \strng{fullhash}{01ac7535a7433cd553c660474db512dc}
+      \strng{bibnamehash}{01ac7535a7433cd553c660474db512dc}
+      \strng{authorbibnamehash}{01ac7535a7433cd553c660474db512dc}
+      \strng{authornamehash}{b49627fd7c8ac1e10c71f48b746bfce3}
+      \strng{authorfullhash}{01ac7535a7433cd553c660474db512dc}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recharge mileage is of great importance for a hydrogen fuel cell electric vehicle. High pressure hydrogen storage can increase the recharge mileage significantly. Before hydrogen flows into the fuel cell, a decompression process is necessary. To overcome the seal of the piping system and realize the decompression, Tesla valve can be well used, since it is a type of check valve without moving parts, and when there is a reverse flow, large pressure drop appears between the inlet and outlet. In order to obtain a better pressure drop performance for a Tesla valve, in this paper, the structural parameters including the hydraulic diameter, the valve angle, and the inner curve radius are investigated for a large range of inlet velocities. The results indicate that a small hydraulic diameter and small inner curve radius but large valve angle can provide a higher pressure drop under a large inlet velocity, while the pressure drop under different structural parameters barely changes under a small inlet velocity (less than 100 m/s). Besides, there is a low-pressure zone behind the outlet of the bend channel, which should be paid attention. This work can be referred by the further applications of Tesla valves in hydrogen fuel cell electric vehicles for hydrogen decompression.}
+      \field{issn}{0360-3199}
+      \field{journaltitle}{International Journal of Hydrogen Energy}
+      \field{number}{18}
+      \field{title}{Parametric study on Tesla valve with reverse flow for hydrogen decompression}
+      \field{volume}{43}
+      \field{year}{2018}
+      \field{pages}{8888\bibrangedash 8896}
+      \range{pages}{9}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.ijhydene.2018.03.014
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0360319918307432
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0360319918307432
+      \endverb
+      \keyw{Hydrogen decompression,Pressure drop,Tesla valve,Structural parameter,Computational fluid dynamics}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

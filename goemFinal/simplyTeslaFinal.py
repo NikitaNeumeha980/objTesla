@@ -49,7 +49,7 @@ min_size = size_special * 0.5
 w = 500 #mkm
 
 # Угол наклона уха
-alpha = 55
+alpha = 10
 
 # кол-во "ушек"
 numSteps = 2
@@ -62,7 +62,7 @@ r2 = 2 * w
 step = 2 * r1 / math.sin(alpha * math.pi/180)
 
 # Длина основного канала
-L = numSteps * step * 3
+L = numSteps * 2 * step + w * 20
 
 
 # размер бокса по X
@@ -128,7 +128,8 @@ simply_tesla_num = geompy.MakeFuseList(
   [
     geompy.MakeTranslation(
       geompy.MakeFaceHW(L, w, 1),
-      L * 0.5 - step * 1.75,
+      #L * 0.5 - step * 1.75,
+      L * 0.5 - (step + w * 10),
       - w * 0.5,
       0
     )
@@ -137,6 +138,7 @@ simply_tesla_num = geompy.MakeFuseList(
 )
 
 tesla_valve = geompy.MakePrismVecH(simply_tesla_num, OZ, w * half)
+geompy.addToStudy( tesla_valve, 'tesla_valve1')
 
 #сглаживание
 filletIDs1 = []
@@ -220,8 +222,8 @@ for filletIDs2 in filletIDs2:
 
 tesla_valve = geompy.MakeFillet(
     tesla_valve,
-    w * 10,
-    #step,
+    #w * 10,
+    2 * r1,
     geompy.ShapeType["EDGE"],
     filletIDs
     )
@@ -303,7 +305,7 @@ tesla_valve = geompy.MakeFillet(
         tesla_valve,
         geompy.ShapeType["FACE"],
         geompy.MakeVectorDXDYDZ(1, 0, 0),
-        geompy.MakeVertex(- step * 1.75, 0, 0),
+        geompy.MakeVertex(- (step + w * 10), 0, 0),
         GEOM.ST_ON
     )
 
@@ -312,7 +314,7 @@ tesla_valve = geompy.MakeFillet(
         tesla_valve,
         geompy.ShapeType["FACE"],
         geompy.MakeVectorDXDYDZ(1, 0, 0),
-        geompy.MakeVertex(L - step * 1.75, 0, 0),
+        geompy.MakeVertex(((numSteps * 2) - 1) * step + w * 10, 0, 0),
         GEOM.ST_ON
     )
 
@@ -323,7 +325,7 @@ ent_ID =\
         ent,
         geompy.ShapeType["FACE"],
         geompy.MakeVectorDXDYDZ(1, 0, 0),
-        geompy.MakeVertex(- step * 1.75, 0, 0),
+        geompy.MakeVertex(- (step + w * 10), 0, 0),
         GEOM.ST_ON
     )
 out_ID =\
@@ -331,7 +333,7 @@ out_ID =\
         out,
         geompy.ShapeType["FACE"],
         geompy.MakeVectorDXDYDZ(1, 0, 0),
-        geompy.MakeVertex(L - step * 1.75, 0, 0),
+        geompy.MakeVertex(((numSteps * 2) - 1) * step + w * 10, 0, 0),
         GEOM.ST_ON
     )
 
@@ -399,9 +401,9 @@ geompy.addToStudyInFather( tesla_valve, out, 'out')
 geompy.addToStudy( simply_box, 'simply_box')
 geompy.addToStudy( simply_box_num, 'simply_box_num')
 
-###
-### SMESH component
-###
+##
+## SMESH component
+##
 
 import  SMESH, SALOMEDS
 from salome.smesh import smeshBuilder

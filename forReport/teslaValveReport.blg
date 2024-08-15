@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'teslaValveReport.blg'
-[116] biber:340> INFO - === Ср авг 14, 2024, 13:14:15
-[133] Biber.pm:418> INFO - Reading 'teslaValveReport.bcf'
-[186] Biber.pm:972> INFO - Found 1 citekeys in bib section 0
-[197] Biber.pm:4383> INFO - Processing section 0
-[206] Biber.pm:4574> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[207] bibtex.pm:1713> INFO - LaTeX decoding ...
-[209] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliography.bib'
-[272] UCollate.pm:68> INFO - Overriding locale 'ru-RU' defaults 'variable = shifted' with 'variable = non-ignorable'
-[272] UCollate.pm:68> INFO - Overriding locale 'ru-RU' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[272] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'ru-RU'
-[272] Biber.pm:4209> INFO - No sort tailoring available for locale 'ru-RU'
-[287] bbl.pm:654> INFO - Writing 'teslaValveReport.bbl' with encoding 'UTF-8'
-[289] bbl.pm:757> INFO - Output to teslaValveReport.bbl
+[61] biber:340> INFO - === Чт авг 15, 2024, 12:25:37
+[71] Biber.pm:418> INFO - Reading 'teslaValveReport.bcf'
+[118] Biber.pm:972> INFO - Found 1 citekeys in bib section 0
+[127] Biber.pm:4383> INFO - Processing section 0
+[134] Biber.pm:4574> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[135] bibtex.pm:1713> INFO - LaTeX decoding ...
+[142] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliography.bib'
+[169] UCollate.pm:68> INFO - Overriding locale 'ru-RU' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[169] UCollate.pm:68> INFO - Overriding locale 'ru-RU' defaults 'variable = shifted' with 'variable = non-ignorable'
+[169] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'ru-RU'
+[169] Biber.pm:4209> INFO - No sort tailoring available for locale 'ru-RU'
+[170] bbl.pm:654> INFO - Writing 'teslaValveReport.bbl' with encoding 'UTF-8'
+[171] bbl.pm:757> INFO - Output to teslaValveReport.bbl

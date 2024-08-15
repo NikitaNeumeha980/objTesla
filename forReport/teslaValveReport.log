@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  14 AUG 2024 17:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  15 AUG 2024 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -949,16 +949,23 @@ LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) [8 <./media/graphDiMaxSize.png>] (./teslaValveReport.aux)
+)
+Overfull \hbox (19.79015pt too wide) in paragraph at lines 311--311
+[]\T2A/cmr/m/n/10 A. Purwidyantri è B. Prabowo, ``Tesla Valve Microfluidics: Th
+e Rise of Forgotten Technology'', \T2A/cmr/m/it/10 Chemosensors\T2A/cmr/m/n/10 
+,
+ []
+
+[8 <./media/graphDiMaxSize.png>] (./teslaValveReport.aux)
 Package logreq Info: Writing requests to 'teslaValveReport.run.xml'.
 \openout1 = `teslaValveReport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14703 strings out of 479648
- 266454 string characters out of 5886115
- 1006923 words of memory out of 5000000
- 32480 multiletter control sequences out of 15000+600000
+ 14697 strings out of 479648
+ 266304 string characters out of 5886115
+ 1006933 words of memory out of 5000000
+ 32474 multiletter control sequences out of 15000+600000
  478099 words of font info for 51 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
  60i,10n,68p,1613b,1672s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -975,9 +982,9 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb>
-Output written on teslaValveReport.pdf (8 pages, 4703831 bytes).
+Output written on teslaValveReport.pdf (8 pages, 4698921 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
+ 278 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)

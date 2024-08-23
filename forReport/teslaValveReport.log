@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  21 AUG 2024 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  23 AUG 2024 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -762,22 +762,22 @@ LaTeX Warning: Unused global option(s):
 (./teslaValveReport.aux)
 \openout1 = `teslaValveReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 Package biblatex Info: Trying to load language 'russian'...
 Package biblatex Info: ... file 'russian.lbx' found.
 
@@ -799,9 +799,9 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'teslaValveReport.bbl' found.
 
 (./teslaValveReport.bbl)
-Package biblatex Info: Reference section=0 on input line 41.
-Package biblatex Info: Reference segment=0 on input line 41.
-LaTeX Info: Redefining \th on input line 41.
+Package biblatex Info: Reference section=0 on input line 43.
+Package biblatex Info: Reference segment=0 on input line 43.
+LaTeX Info: Redefining \th on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -865,114 +865,112 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<media/teslaValve.png, id=8, 1541.76pt x 513.92pt>
-File: media/teslaValve.png Graphic file (type png)
-<use media/teslaValve.png>
-Package pdftex.def Info: media/teslaValve.png  used on input line 81.
-(pdftex.def)             Requested size: 770.87811pt x 256.95937pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
-
+<media/teslaDesign.pdf, id=8, 3382.6375pt x 2392.94pt>
+File: media/teslaDesign.pdf Graphic file (type pdf)
+<use media/teslaDesign.pdf>
+Package pdftex.def Info: media/teslaDesign.pdf  used on input line 91.
+(pdftex.def)             Requested size: 469.47049pt x 332.08826pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<media/teslaMesh1.jpeg, id=10, 3854.4pt x 2168.1pt>
+<media/teslaMesh1.jpeg, id=9, 3854.4pt x 2168.1pt>
 File: media/teslaMesh1.jpeg Graphic file (type jpg)
 <use media/teslaMesh1.jpeg>
-Package pdftex.def Info: media/teslaMesh1.jpeg  used on input line 92.
+Package pdftex.def Info: media/teslaMesh1.jpeg  used on input line 104.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
-<media/teslaMesh2.jpeg, id=11, 3854.4pt x 2168.1pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<media/teslaMesh2.jpeg, id=10, 3854.4pt x 2168.1pt>
 File: media/teslaMesh2.jpeg Graphic file (type jpg)
 <use media/teslaMesh2.jpeg>
-Package pdftex.def Info: media/teslaMesh2.jpeg  used on input line 101.
+Package pdftex.def Info: media/teslaMesh2.jpeg  used on input line 113.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
- [2 <./media/teslaValve.png> <./media/teslaMesh1.jpeg>] [3 <./media/teslaMesh2.
+[2 <./media/teslaDesign.pdf>] [3 <./media/teslaMesh1.jpeg> <./media/teslaMesh2.
 jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 187--189
+Underfull \hbox (badness 10000) in paragraph at lines 199--201
 
  []
 
-<media/minMesh.jpeg, id=26, 3854.4pt x 2168.1pt>
+[4]
+<media/minMesh.jpeg, id=38, 3854.4pt x 2168.1pt>
 File: media/minMesh.jpeg Graphic file (type jpg)
 <use media/minMesh.jpeg>
-Package pdftex.def Info: media/minMesh.jpeg  used on input line 203.
+Package pdftex.def Info: media/minMesh.jpeg  used on input line 215.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
-[4]
-<media/PFieldsReverse.jpeg, id=31, 3011.25pt x 1505.625pt>
+<media/PFieldsReverse.jpeg, id=39, 3011.25pt x 1505.625pt>
 File: media/PFieldsReverse.jpeg Graphic file (type jpg)
 <use media/PFieldsReverse.jpeg>
-Package pdftex.def Info: media/PFieldsReverse.jpeg  used on input line 212.
+Package pdftex.def Info: media/PFieldsReverse.jpeg  used on input line 224.
 (pdftex.def)             Requested size: 469.47049pt x 234.72493pt.
-<media/UFieldsReverse.jpeg, id=32, 3011.25pt x 1505.625pt>
+ [5 <./media/minMesh.jpeg>]
+<media/UFieldsReverse.jpeg, id=43, 3011.25pt x 1505.625pt>
 File: media/UFieldsReverse.jpeg Graphic file (type jpg)
 <use media/UFieldsReverse.jpeg>
-Package pdftex.def Info: media/UFieldsReverse.jpeg  used on input line 219.
+Package pdftex.def Info: media/UFieldsReverse.jpeg  used on input line 231.
 (pdftex.def)             Requested size: 469.47049pt x 234.72493pt.
- [5 <./media/minMesh.jpeg> <./media/PFieldsReverse.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 224--246
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--258
 
  []
 
-<media/graphDi1.png, id=36, 873.7443pt x 544.1931pt>
+<media/graphDi1.png, id=44, 873.7443pt x 544.1931pt>
 File: media/graphDi1.png Graphic file (type png)
 <use media/graphDi1.png>
-Package pdftex.def Info: media/graphDi1.png  used on input line 251.
+Package pdftex.def Info: media/graphDi1.png  used on input line 263.
 (pdftex.def)             Requested size: 469.47049pt x 292.40674pt.
-[6 <./media/UFieldsReverse.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 256--293
+[6 <./media/PFieldsReverse.jpeg> <./media/UFieldsReverse.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 268--305
 
  []
 
-<media/graphDiWithTrendLine.png, id=40, 461.8053pt x 346.1733pt>
+<media/graphDiWithTrendLine.png, id=49, 461.8053pt x 346.1733pt>
 File: media/graphDiWithTrendLine.png Graphic file (type png)
 <use media/graphDiWithTrendLine.png>
-Package pdftex.def Info: media/graphDiWithTrendLine.png  used on input line 305
+Package pdftex.def Info: media/graphDiWithTrendLine.png  used on input line 317
 .
 (pdftex.def)             Requested size: 469.47049pt x 351.93529pt.
-[7 <./media/graphDi1.png>]
-<media/graphDiMaxSize.png, id=46, 461.8053pt x 346.1733pt>
+[7 <./media/graphDi1.png>] [8 <./media/graphDiWithTrendLine.png>]
+<media/graphDiMaxSize.png, id=59, 461.8053pt x 346.1733pt>
 File: media/graphDiMaxSize.png Graphic file (type png)
 <use media/graphDiMaxSize.png>
-Package pdftex.def Info: media/graphDiMaxSize.png  used on input line 316.
+Package pdftex.def Info: media/graphDiMaxSize.png  used on input line 328.
 (pdftex.def)             Requested size: 469.47049pt x 351.93529pt.
- [8 <./media/graphDiWithTrendLine.png>]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-323.
+335.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-Overfull \hbox (19.79015pt too wide) in paragraph at lines 324--324
+Overfull \hbox (19.79015pt too wide) in paragraph at lines 336--336
 []\T2A/cmr/m/n/10 A. Purwidyantri è B. Prabowo, ``Tesla Valve Microfluidics: Th
 e Rise of Forgotten Technology'', \T2A/cmr/m/it/10 Chemosensors\T2A/cmr/m/n/10 
 ,
  []
 
 [9 <./media/graphDiMaxSize.png>] [10] (./teslaValveReport.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please rerun LaTeX.
-
 Package logreq Info: Writing requests to 'teslaValveReport.run.xml'.
 \openout1 = `teslaValveReport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14732 strings out of 479648
- 267640 string characters out of 5886115
- 1006280 words of memory out of 5000000
- 32509 multiletter control sequences out of 15000+600000
+ 14729 strings out of 479648
+ 267610 string characters out of 5886115
+ 1007220 words of memory out of 5000000
+ 32507 multiletter control sequences out of 15000+600000
  478099 words of font info for 51 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 60i,10n,68p,1853b,1677s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,68p,1853b,1672s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt1000.600p
 k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lacc1000.600p
 k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati1000.600p
@@ -986,10 +984,10 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy7.pfb>
-Output written on teslaValveReport.pdf (10 pages, 4141164 bytes).
+Output written on teslaValveReport.pdf (10 pages, 4112939 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 345 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

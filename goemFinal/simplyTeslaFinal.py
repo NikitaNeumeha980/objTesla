@@ -49,7 +49,7 @@ min_size = size_special * 0.5
 w = 500 #mkm
 
 # Угол наклона уха
-alpha = 22.5
+alpha = 20
 
 # кол-во "ушек"
 numSteps = 2

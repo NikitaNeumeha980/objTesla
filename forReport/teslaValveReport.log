@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  23 AUG 2024 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  27 AUG 2024 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -964,30 +964,31 @@ Package logreq Info: Writing requests to 'teslaValveReport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14729 strings out of 479648
- 267610 string characters out of 5886115
+ 14732 strings out of 479648
+ 267648 string characters out of 5886115
  1007220 words of memory out of 5000000
- 32507 multiletter control sequences out of 15000+600000
- 478099 words of font info for 51 fonts, out of 8000000 for 9000
+ 32509 multiletter control sequences out of 15000+600000
+ 478434 words of font info for 52 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 60i,10n,68p,1853b,1672s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,68p,2507b,1672s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt1000.600p
 k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lacc1000.600p
 k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati1000.600p
-k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1000.600p
-k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1440.600p
-k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy7.pfb>
-Output written on teslaValveReport.pdf (10 pages, 4112939 bytes).
+k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.60
+0pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1000.60
+0pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1440.60
+0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb>
+Output written on teslaValveReport.pdf (10 pages, 4113672 bytes).
 PDF statistics:
- 345 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 350 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

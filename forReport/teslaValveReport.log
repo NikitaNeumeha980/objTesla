@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  27 AUG 2024 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.11)  13 SEP 2024 17:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,30 +698,105 @@ Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen151
+\ar@mcellbox=\box53
+\extrarowheight=\dimen152
+\NC@list=\toks31
+\extratabsurround=\skip77
+\backup@length=\skip78
+\ar@cellbox=\box54
+)
+\TX@col@width=\dimen153
+\TX@old@table=\dimen154
+\TX@old@col=\dimen155
+\TX@target=\dimen156
+\TX@delta=\dimen157
+\TX@cols=\count404
+\TX@ftn=\toks32
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks33
+\XKV@tempa@toks=\toks34
+)
+\XKV@depth=\count405
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box55
+)
+\tc@llx=\dimen158
+\tc@lly=\dimen159
+\tc@urx=\dimen160
+\tc@ury=\dimen161
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen162
+\adjbox@Height=\dimen163
+\adjbox@Depth=\dimen164
+\adjbox@Totalheight=\dimen165
+\adjbox@pwidth=\dimen166
+\adjbox@pheight=\dimen167
+\adjbox@pdepth=\dimen168
+\adjbox@ptotalheight=\dimen169
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count406
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box56
+\sift@deathcycles=\count407
+\@vwid@loff=\dimen170
+\@vwid@roff=\dimen171
+))
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count404
-\float@exts=\toks31
-\float@box=\box53
-\@float@everytoks=\toks32
-\@floatcapt=\box54
+\c@float@type=\count408
+\float@exts=\toks35
+\float@box=\box57
+\@float@everytoks=\toks36
+\@floatcapt=\box58
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen151
-\captionmargin@=\dimen152
-\captionwidth=\dimen153
-\caption@tempdima=\dimen154
-\caption@indent=\dimen155
-\caption@parindent=\dimen156
-\caption@hangindent=\dimen157
+\captionmargin=\dimen172
+\captionmargin@=\dimen173
+\captionwidth=\dimen174
+\caption@tempdima=\dimen175
+\caption@indent=\dimen176
+\caption@parindent=\dimen177
+\caption@hangindent=\dimen178
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count405
-\c@continuedfloat=\count406
+\c@caption@flags=\count409
+\c@continuedfloat=\count410
 Package caption Info: float package is loaded.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
@@ -733,18 +808,18 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count407
-\Gm@cntv=\count408
-\c@Gm@tempcnt=\count409
-\Gm@bindingoffset=\dimen158
-\Gm@wd@mp=\dimen159
-\Gm@odd@mp=\dimen160
-\Gm@even@mp=\dimen161
-\Gm@layoutwidth=\dimen162
-\Gm@layoutheight=\dimen163
-\Gm@layouthoffset=\dimen164
-\Gm@layoutvoffset=\dimen165
-\Gm@dimlist=\toks33
+\Gm@cnth=\count411
+\Gm@cntv=\count412
+\c@Gm@tempcnt=\count413
+\Gm@bindingoffset=\dimen179
+\Gm@wd@mp=\dimen180
+\Gm@odd@mp=\dimen181
+\Gm@even@mp=\dimen182
+\Gm@layoutwidth=\dimen183
+\Gm@layoutheight=\dimen184
+\Gm@layouthoffset=\dimen185
+\Gm@layoutvoffset=\dimen186
+\Gm@dimlist=\toks37
 )
 (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
@@ -753,8 +828,8 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count410
-\@quotereset=\count411
+\@quotelevel=\count414
+\@quotereset=\count415
 
 LaTeX Warning: Unused global option(s):
     [14pt].
@@ -762,22 +837,22 @@ LaTeX Warning: Unused global option(s):
 (./teslaValveReport.aux)
 \openout1 = `teslaValveReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 Package biblatex Info: Trying to load language 'russian'...
 Package biblatex Info: ... file 'russian.lbx' found.
 
@@ -799,23 +874,23 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'teslaValveReport.bbl' found.
 
 (./teslaValveReport.bbl)
-Package biblatex Info: Reference section=0 on input line 43.
-Package biblatex Info: Reference segment=0 on input line 43.
-LaTeX Info: Redefining \th on input line 43.
+Package biblatex Info: Reference section=0 on input line 45.
+Package biblatex Info: Reference segment=0 on input line 45.
+LaTeX Info: Redefining \th on input line 45.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count412
-\scratchdimen=\dimen166
-\scratchbox=\box55
-\nofMPsegments=\count413
-\nofMParguments=\count414
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count415
-\MPscratchDim=\dimen167
-\MPnumerator=\count416
-\makeMPintoPDFobject=\count417
-\everyMPtoPDFconversion=\toks35
+\scratchcounter=\count416
+\scratchdimen=\dimen187
+\scratchbox=\box59
+\nofMPsegments=\count417
+\nofMParguments=\count418
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count419
+\MPscratchDim=\dimen188
+\MPnumerator=\count420
+\makeMPintoPDFobject=\count421
+\everyMPtoPDFconversion=\toks39
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -868,15 +943,15 @@ Package caption Info: End \AtBeginDocument code.
 <media/teslaDesign.pdf, id=8, 3382.6375pt x 2392.94pt>
 File: media/teslaDesign.pdf Graphic file (type pdf)
 <use media/teslaDesign.pdf>
-Package pdftex.def Info: media/teslaDesign.pdf  used on input line 91.
+Package pdftex.def Info: media/teslaDesign.pdf  used on input line 93.
 (pdftex.def)             Requested size: 469.47049pt x 332.08826pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+LaTeX Font Info:    Trying to load font information for U+msa on input line 102
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+LaTeX Font Info:    Trying to load font information for U+msb on input line 102
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -885,7 +960,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <media/teslaMesh1.jpeg, id=9, 3854.4pt x 2168.1pt>
 File: media/teslaMesh1.jpeg Graphic file (type jpg)
 <use media/teslaMesh1.jpeg>
-Package pdftex.def Info: media/teslaMesh1.jpeg  used on input line 104.
+Package pdftex.def Info: media/teslaMesh1.jpeg  used on input line 106.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
 
 
@@ -894,11 +969,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <media/teslaMesh2.jpeg, id=10, 3854.4pt x 2168.1pt>
 File: media/teslaMesh2.jpeg Graphic file (type jpg)
 <use media/teslaMesh2.jpeg>
-Package pdftex.def Info: media/teslaMesh2.jpeg  used on input line 113.
+Package pdftex.def Info: media/teslaMesh2.jpeg  used on input line 115.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
 [2 <./media/teslaDesign.pdf>] [3 <./media/teslaMesh1.jpeg> <./media/teslaMesh2.
 jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 199--201
+Underfull \hbox (badness 10000) in paragraph at lines 201--203
 
  []
 
@@ -906,53 +981,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--201
 <media/minMesh.jpeg, id=38, 3854.4pt x 2168.1pt>
 File: media/minMesh.jpeg Graphic file (type jpg)
 <use media/minMesh.jpeg>
-Package pdftex.def Info: media/minMesh.jpeg  used on input line 215.
+Package pdftex.def Info: media/minMesh.jpeg  used on input line 217.
 (pdftex.def)             Requested size: 469.47049pt x 264.06451pt.
 <media/PFieldsReverse.jpeg, id=39, 3011.25pt x 1505.625pt>
 File: media/PFieldsReverse.jpeg Graphic file (type jpg)
 <use media/PFieldsReverse.jpeg>
-Package pdftex.def Info: media/PFieldsReverse.jpeg  used on input line 224.
+Package pdftex.def Info: media/PFieldsReverse.jpeg  used on input line 226.
 (pdftex.def)             Requested size: 469.47049pt x 234.72493pt.
  [5 <./media/minMesh.jpeg>]
 <media/UFieldsReverse.jpeg, id=43, 3011.25pt x 1505.625pt>
 File: media/UFieldsReverse.jpeg Graphic file (type jpg)
 <use media/UFieldsReverse.jpeg>
-Package pdftex.def Info: media/UFieldsReverse.jpeg  used on input line 231.
+Package pdftex.def Info: media/UFieldsReverse.jpeg  used on input line 233.
 (pdftex.def)             Requested size: 469.47049pt x 234.72493pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--258
+Underfull \hbox (badness 10000) in paragraph at lines 238--260
 
  []
 
 <media/graphDi1.png, id=44, 873.7443pt x 544.1931pt>
 File: media/graphDi1.png Graphic file (type png)
 <use media/graphDi1.png>
-Package pdftex.def Info: media/graphDi1.png  used on input line 263.
+Package pdftex.def Info: media/graphDi1.png  used on input line 265.
 (pdftex.def)             Requested size: 469.47049pt x 292.40674pt.
 [6 <./media/PFieldsReverse.jpeg> <./media/UFieldsReverse.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 268--305
+Underfull \hbox (badness 10000) in paragraph at lines 270--307
 
  []
 
 <media/graphDiWithTrendLine.png, id=49, 461.8053pt x 346.1733pt>
 File: media/graphDiWithTrendLine.png Graphic file (type png)
 <use media/graphDiWithTrendLine.png>
-Package pdftex.def Info: media/graphDiWithTrendLine.png  used on input line 317
+Package pdftex.def Info: media/graphDiWithTrendLine.png  used on input line 319
 .
 (pdftex.def)             Requested size: 469.47049pt x 351.93529pt.
 [7 <./media/graphDi1.png>] [8 <./media/graphDiWithTrendLine.png>]
 <media/graphDiMaxSize.png, id=59, 461.8053pt x 346.1733pt>
 File: media/graphDiMaxSize.png Graphic file (type png)
 <use media/graphDiMaxSize.png>
-Package pdftex.def Info: media/graphDiMaxSize.png  used on input line 328.
+Package pdftex.def Info: media/graphDiMaxSize.png  used on input line 330.
 (pdftex.def)             Requested size: 469.47049pt x 351.93529pt.
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-335.
+379.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-Overfull \hbox (19.79015pt too wide) in paragraph at lines 336--336
+Overfull \hbox (19.79015pt too wide) in paragraph at lines 380--380
 []\T2A/cmr/m/n/10 A. Purwidyantri è B. Prabowo, ``Tesla Valve Microfluidics: Th
 e Rise of Forgotten Technology'', \T2A/cmr/m/it/10 Chemosensors\T2A/cmr/m/n/10 
 ,
@@ -964,13 +1039,13 @@ Package logreq Info: Writing requests to 'teslaValveReport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14732 strings out of 479648
- 267648 string characters out of 5886115
- 1007220 words of memory out of 5000000
- 32509 multiletter control sequences out of 15000+600000
+ 16004 strings out of 479648
+ 290588 string characters out of 5886115
+ 1061154 words of memory out of 5000000
+ 33742 multiletter control sequences out of 15000+600000
  478434 words of font info for 52 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 60i,10n,68p,2507b,1672s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,10n,117p,2507b,1672s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt1000.600p
 k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lacc1000.600p
 k> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati1000.600p
@@ -985,9 +1060,9 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy7.pfb>
-Output written on teslaValveReport.pdf (10 pages, 4113672 bytes).
+Output written on teslaValveReport.pdf (10 pages, 4114595 bytes).
 PDF statistics:
- 350 PDF objects out of 1000 (max. 8388607)
+ 351 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)

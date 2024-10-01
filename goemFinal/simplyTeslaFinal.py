@@ -49,7 +49,7 @@ min_size = size_special * 0.5
 w = 500 #mkm
 
 # Угол наклона уха
-alpha = 10
+alpha = 30
 
 # кол-во "ушек"
 numSteps = 2
@@ -223,8 +223,8 @@ for filletIDs2 in filletIDs2:
 tesla_valve = geompy.MakeFillet(
     tesla_valve,
     #w * 10,
-    2 * r1,
-    #1400,
+    #2 * r1,
+    1400,
     geompy.ShapeType["EDGE"],
     filletIDs
     )

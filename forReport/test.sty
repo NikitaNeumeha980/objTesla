@@ -1,0 +1,904 @@
+% (c) Вычислительные методы и программирование, 2021-2024
+\ProvidesPackage{test}
+\RequirePackage[T1,T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english,main=russian]{babel}
+\RequirePackage[intlimits]{amsmath}
+\RequirePackage{amsfonts,amssymb,textcomp,latexsym,pb-diagram}
+\RequirePackage[width=170mm,height=240mm]{geometry}
+\RequirePackage{cmap}
+\RequirePackage{textcase}
+\RequirePackage{graphicx,color}
+\RequirePackage{xcolor}
+\RequirePackage{floatrow,floatflt}
+\RequirePackage{wrapfig}
+\RequirePackage{tabularx}
+\RequirePackage{caption}
+\RequirePackage{bicaption}
+\RequirePackage{xpatch}
+\RequirePackage{makecell}
+\RequirePackage{multirow}
+\RequirePackage[width=.75\textwidth,font=small,labelsep=period]{caption}
+\RequirePackage[justification=centering]{caption}
+\RequirePackage{titlesec} 
+\RequirePackage{etoolbox}
+\RequirePackage{lastpage}
+\RequirePackage{fancyhdr}
+\RequirePackage{indentfirst}
+\RequirePackage{enumitem}
+\RequirePackage{fancyvrb}
+\RequirePackage{bm}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{listings,breakable}
+\RequirePackage{forloop}
+\RequirePackage[pdftex,pdfa,unicode,bookmarks=false]{hyperref}
+\RequirePackage{url}
+\RequirePackage{bookmark}
+\RequirePackage{xparse}
+\RequirePackage{ifmtarg}
+\floatstyle{plaintop}
+\restylefloat{table}
+\usepackage[left,pagewise,mathlines,displaymath]{lineno}
+\renewcommand\linenumberfont{\normalfont\small}
+\setlength\linenumbersep{5mm}
+\linenumbers
+%
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks% 
+    \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+    \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+    \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+    \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+    \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+    \do\Y\do\Z}
+%
+\lst@Key{bicaption}\relax{\lstKV@OptArg[{#1}]{#1}%
+    {\def\lst@bicaption{##2}\def\lst@@bicaption{##1}}}
+\lst@AddToHookExe{TextStyle}
+{\let\lst@bicaption\@empty \let\lst@@bicaption\@empty}
+\def\lstlistingnameBi{Listing} % the name "Listing" in second language
+\def\fnum@lstlisting@bi{%
+    {\lstlistingnamestyle\lstlistingnameBi
+        \ifx\lst@@caption\@empty\else~\thelstlisting\fi}}
+\AtBeginDocument{
+    \xpatchcmd\caption@ORI@lst@MakeCaption
+    {\lst@makecaption\fnum@lstlisting{\ignorespaces \lst@caption}}
+    {\lst@makecaption\fnum@lstlisting{\ignorespaces \lst@caption}%
+        \ifx\lst@bicaption\@empty
+        \else
+        \vspace*{-2mm}\oppo{\lst@makecaption\fnum@lstlisting@bi{\ignorespaces \lst@bicaption\par\vspace*{1mm}}}%
+        \fi}
+    {}{\fail}
+}
+\lstset{aboveskip=6pt}
+\lstset{belowskip=0pt}
+%\lstlistingnamestyle
+%\renewcommand{\lstlistingnameBi}{Listing}
+\captionsetup[figure]{position=bottom,labelfont=small}
+\captionsetup[figure][bi]{justification=centering, singlelinecheck=false, margin={0mm,0mm}}
+\captionsetup[figure][bi-first]{name=Рис.}
+\captionsetup[figure][bi-second]{name=Fig.}
+\DeclareCaptionFormat{myFigFmt1}{#1#2#3\par\vspace*{2mm}}
+\captionsetup[figure][bi-first]{format=myFigFmt1}
+\DeclareCaptionFormat{myFigFmt}{\oppo{#1#2#3}\par\vspace*{-2mm}}
+\captionsetup[figure][bi-second]{format=myFigFmt}
+\captionsetup[table]{position=top,labelfont=small}
+\captionsetup[table][bi]{justification=centering, singlelinecheck=false, margin={0mm,0mm}}
+\captionsetup[table][bi-first]{name=Таблица}
+\captionsetup[table][bi-second]{name=Table}
+\DeclareCaptionFormat{myTblFmt}{\oppo{#1#2#3}\par\vspace*{-2mm}}
+\captionsetup[table][bi-second]{format=myTblFmt}
+\captionsetup[lstlisting]{justification=centering,singlelinecheck=false,position=top,labelfont=small,width=170mm}
+%
+\global\setlength\paperheight   {297truemm}%
+\global\setlength\paperwidth    {210truemm}%
+\global\setlength\pdfpageheight {297truemm}%
+\global\setlength\pdfpagewidth  {210truemm}%
+\global\setlength\textheight    {240truemm}%
+\global\setlength\textwidth     {170truemm}%
+\global\setlength\hoffset       {-18truemm}%
+\global\setlength\voffset       {-10truemm}%
+\global\setlength\pdfhorigin    {1truein}%
+\global\setlength\pdfvorigin    {1truein}%
+\global\setlength\oddsidemargin {15truemm}%
+\global\setlength\evensidemargin{15truemm}%
+\global\setlength\topmargin     {5truemm}%
+\global\setlength\leftskip      {0truemm}%
+\global\setlength\rightskip     {0truemm}%
+\global\setlength\unitlength	{1mm}
+%
+\newlength{\pparindent}
+\global\setlength\pparindent{5.6ex}
+\global\setlength\parindent	{\pparindent}
+\global\setlength\parskip	{0mm}
+\renewcommand{\baselinestretch}{1.05}
+%
+\definecolor{myRed}{RGB}{200,0,0}
+\newcommand{\corr}[1]{\textcolor{myRed}{#1}}
+%
+\definecolor{myWhite}{RGB}{255,255,255}
+\definecolor{MYWHITE}{RGB}{255,255,255}
+\newcommand{\cwhite}[1]{\textcolor{myWhite}{#1}}
+%
+\definecolor{OpponentColor}{RGB}{78,78,78}
+\newcommand\oppo[1]{\color{OpponentColor}#1\color{black}}
+\newcommand\contra[1]{\color{OpponentColor}#1\color{black}}
+%
+\newcounter{rulitcnt}%
+\newcounter{enlitcnt}%
+\newcounter{appendixcnt}%
+%
+\newlength{\lititemlength}
+%
+\ifpdf
+\definecolor{myPageLinksColor}{RGB}{20,20,150}
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=myPageLinksColor,
+    urlcolor=myPageLinksColor,
+    breaklinks=true,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    bookmarkstype=none
+}
+\fi
+\renewcommand\UrlFont{\color{myPageLinksColor}\ttfamily}
+%
+\newcommand\UDC[1]{\newcommand\sc@UDC{#1}}
+\newcommand\DOI[1]{\newcommand\sc@DOI{#1}}
+\newcommand\VOL[2]{\newcommand\sc@VOL{#1}\newcommand\sc@VIP{#2}}
+\newcommand\YEAR[1]{\newcommand\sc@YEAR{#1}}
+\newcommand\Article[2]{\newcommand\sc@ArticleRU{#1}\newcommand\sc@ArticleEN{#2}}
+\newcommand\Received[2]{\newcommand\sc@ReceivedRU{#1}\newcommand\sc@ReceivedEN{#2}}
+\newcommand\Accepted[2]{\newcommand\sc@AcceptedRU{#1}\newcommand\sc@AcceptedEN{#2}}
+\newcommand\Abstract[2]{\newcommand\sc@AbstractRU{#1}\newcommand\sc@AbstractEN{#2}}
+\newcommand\Keywords[2]{\newcommand\sc@KeyWordsRU{#1}\newcommand\sc@KeyWordsEN{#2}}
+\newcommand\Citation[2]{\newcommand\sc@CitationRU{#1}\newcommand\sc@CitationEN{#2}}
+\newif\ifack%
+\ackfalse%
+\newif\ifacd@A 	% 
+\newif\ifacd@B 	% 
+\newif\ifacd@C 	% 
+\newif\ifacd@D 	% 
+\newif\ifacd@E 	% 
+\newif\ifacd@F 	% 
+\newif\ifacd@G 	% 
+\newif\ifacd@H 	% 
+\newif\ifacd@I 	%
+\newif\ifacd@J 	%
+\acd@Afalse	%
+\acd@Bfalse	%
+\acd@Cfalse	%
+\acd@Dfalse	%
+\acd@Efalse	%
+\acd@Ffalse	%
+\acd@Gfalse	%
+\acd@Hfalse	%
+\acd@Ifalse	%
+\acd@Jfalse	%
+\newif\ifact@A 	%
+\newif\ifact@B 	%
+\newif\ifact@C 	%
+\newif\ifact@D 	%
+\newif\ifact@E 	%
+\newif\ifact@F 	%
+\newif\ifact@G 	%
+\newif\ifact@H 	%
+\newif\ifact@I 	%
+\newif\ifact@J 	%
+\act@Afalse	%
+\act@Bfalse	%
+\act@Cfalse	%
+\act@Dfalse	%
+\act@Efalse	%
+\act@Ffalse	%
+\act@Gfalse	%
+\act@Hfalse	%
+\act@Ifalse	%
+\act@Jfalse	%
+\newif\ifoth@A 	%
+\newif\ifoth@B 	%
+\newif\ifoth@C 	%
+\newif\ifoth@D 	%
+\newif\ifoth@E 	%
+\newif\ifoth@F 	%
+\newif\ifoth@G 	%
+\newif\ifoth@H 	%
+\newif\ifoth@I 	%
+\newif\ifoth@J 	%
+\oth@Afalse	%
+\oth@Bfalse	%
+\oth@Cfalse	%
+\oth@Dfalse	%
+\oth@Efalse	%
+\oth@Gfalse	% 
+\oth@Hfalse	%
+\oth@Ifalse	%
+\oth@Jfalse	%
+%
+\newcommand\Acknowledgements[2]{\newcommand\sc@AckRU{#1}\newcommand\sc@AckEN{#2}\acktrue}
+%
+\newcommand\sc@NL[1]{%
+    \ifnum #1=1 a\fi
+    \ifnum #1=2 b\fi
+    \ifnum #1=3 c\fi
+    \ifnum #1=4 d\fi
+    \ifnum #1=5 e\fi
+    \ifnum #1=6 f\fi
+    \ifnum #1=7 g\fi
+    \ifnum #1=8 h\fi
+    \ifnum #1=9 i\fi
+    \ifnum #1=10 j\fi
+}
+\newcommand\sc@NumLet[1]{%
+    \ifnum #1=1 A\fi
+    \ifnum #1=2 B\fi
+    \ifnum #1=3 C\fi
+    \ifnum #1=4 D\fi
+    \ifnum #1=5 E\fi
+    \ifnum #1=6 F\fi
+    \ifnum #1=7 G\fi
+    \ifnum #1=8 H\fi
+    \ifnum #1=9 I\fi
+    \ifnum #1=10 J\fi
+}
+\newcounter{authorcnt}
+\newcounter{affcntA}
+\newcounter{affcntB}
+\newcounter{affcntC}
+\newcounter{affcntD}
+\newcounter{affcntE}
+\newcounter{affcntF}
+\newcounter{affcntG}
+\newcounter{affcntH}
+\newcounter{affcntI}
+\newcounter{affcntJ}
+\newcommand\Author[2]{%
+    \refstepcounter{authorcnt}%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@AuthorRUA{#1}\newcommand\sc@AuthorENA{#2}\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@AuthorRUB{#1}\newcommand\sc@AuthorENB{#2}\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@AuthorRUC{#1}\newcommand\sc@AuthorENC{#2}\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@AuthorRUD{#1}\newcommand\sc@AuthorEND{#2}\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@AuthorRUE{#1}\newcommand\sc@AuthorENE{#2}\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@AuthorRUF{#1}\newcommand\sc@AuthorENF{#2}\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@AuthorRUG{#1}\newcommand\sc@AuthorENG{#2}\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@AuthorRUH{#1}\newcommand\sc@AuthorENH{#2}\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@AuthorRUI{#1}\newcommand\sc@AuthorENI{#2}\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@AuthorRUJ{#1}\newcommand\sc@AuthorENJ{#2}\fi
+}
+%
+\newcommand\FullName[2]{%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@FullNameRUA{#1}\newcommand\sc@FullNameENA{#2}\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@FullNameRUB{#1}\newcommand\sc@FullNameENB{#2}\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@FullNameRUC{#1}\newcommand\sc@FullNameENC{#2}\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@FullNameRUD{#1}\newcommand\sc@FullNameEND{#2}\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@FullNameRUE{#1}\newcommand\sc@FullNameENE{#2}\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@FullNameRUF{#1}\newcommand\sc@FullNameENF{#2}\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@FullNameRUG{#1}\newcommand\sc@FullNameENG{#2}\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@FullNameRUH{#1}\newcommand\sc@FullNameENH{#2}\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@FullNameRUI{#1}\newcommand\sc@FullNameENI{#2}\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@FullNameRUJ{#1}\newcommand\sc@FullNameENJ{#2}\fi
+}
+%
+\newcommand\Institution[3][1]{%
+    \ifnum\value{authorcnt}=1 \refstepcounter{affcntA}\expandafter\def\csname sc@InstitutRUA\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENA\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=2 \refstepcounter{affcntB}\expandafter\def\csname sc@InstitutRUB\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENB\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=3 \refstepcounter{affcntC}\expandafter\def\csname sc@InstitutRUC\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENC\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=4 \refstepcounter{affcntD}\expandafter\def\csname sc@InstitutRUD\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutEND\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=5 \refstepcounter{affcntE}\expandafter\def\csname sc@InstitutRUE\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENE\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=6 \refstepcounter{affcntF}\expandafter\def\csname sc@InstitutRUF\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENF\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=7 \refstepcounter{affcntG}\expandafter\def\csname sc@InstitutRUG\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENG\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=8 \refstepcounter{affcntH}\expandafter\def\csname sc@InstitutRUH\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENH\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=9 \refstepcounter{affcntI}\expandafter\def\csname sc@InstitutRUI\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENI\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=10 \refstepcounter{affcntJ}\expandafter\def\csname sc@InstitutRUJ\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@InstitutENJ\sc@NL{#1}\endcsname{#3}\fi
+}
+%
+\newcommand\City[3][1]{%
+    \ifnum\value{authorcnt}=1 \expandafter\def\csname sc@CityRUA\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENA\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=2 \expandafter\def\csname sc@CityRUB\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENB\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=3 \expandafter\def\csname sc@CityRUC\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENC\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=4 \expandafter\def\csname sc@CityRUD\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityEND\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=5 \expandafter\def\csname sc@CityRUE\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENE\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=6 \expandafter\def\csname sc@CityRUF\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENF\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=7 \expandafter\def\csname sc@CityRUG\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENG\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=8 \expandafter\def\csname sc@CityRUH\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENH\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=9 \expandafter\def\csname sc@CityRUI\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENI\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=10 \expandafter\def\csname sc@CityRUJ\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@CityENJ\sc@NL{#1}\endcsname{#3}\fi
+}
+%
+\newcommand\CountryOfResidence[3][1]{%
+    \ifnum\value{authorcnt}=1 \expandafter\def\csname sc@StateRUA\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENA\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=2 \expandafter\def\csname sc@StateRUB\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENB\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=3 \expandafter\def\csname sc@StateRUC\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENC\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=4 \expandafter\def\csname sc@StateRUD\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateEND\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=5 \expandafter\def\csname sc@StateRUE\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENE\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=6 \expandafter\def\csname sc@StateRUF\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENF\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=7 \expandafter\def\csname sc@StateRUG\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENG\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=8 \expandafter\def\csname sc@StateRUH\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENH\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=9 \expandafter\def\csname sc@StateRUI\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENI\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=10 \expandafter\def\csname sc@StateRUJ\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@StateENJ\sc@NL{#1}\endcsname{#3}\fi
+}
+%
+\newcommand\AcademicDegree[2]{%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@AcDegreeRUA{#1}\newcommand\sc@AcDegreeENA{#2}\acd@Atrue\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@AcDegreeRUB{#1}\newcommand\sc@AcDegreeENB{#2}\acd@Btrue\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@AcDegreeRUC{#1}\newcommand\sc@AcDegreeENC{#2}\acd@Ctrue\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@AcDegreeRUD{#1}\newcommand\sc@AcDegreeEND{#2}\acd@Dtrue\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@AcDegreeRUE{#1}\newcommand\sc@AcDegreeENE{#2}\acd@Etrue\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@AcDegreeRUF{#1}\newcommand\sc@AcDegreeENF{#2}\acd@Ftrue\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@AcDegreeRUG{#1}\newcommand\sc@AcDegreeENG{#2}\acd@Gtrue\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@AcDegreeRUH{#1}\newcommand\sc@AcDegreeENH{#2}\acd@Htrue\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@AcDegreeRUI{#1}\newcommand\sc@AcDegreeENI{#2}\acd@Itrue\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@AcDegreeRUJ{#1}\newcommand\sc@AcDegreeENJ{#2}\acd@Jtrue\fi
+}
+%
+\newcommand\AcademicTitle[2]{%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@AcTitleRUA{#1}\newcommand\sc@AcTitleENA{#2}\act@Atrue\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@AcTitleRUB{#1}\newcommand\sc@AcTitleENB{#2}\act@Btrue\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@AcTitleRUC{#1}\newcommand\sc@AcTitleENC{#2}\act@Ctrue\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@AcTitleRUD{#1}\newcommand\sc@AcTitleEND{#2}\act@Dtrue\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@AcTitleRUE{#1}\newcommand\sc@AcTitleENE{#2}\act@Etrue\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@AcTitleRUF{#1}\newcommand\sc@AcTitleENF{#2}\act@Ftrue\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@AcTitleRUG{#1}\newcommand\sc@AcTitleENG{#2}\act@Gtrue\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@AcTitleRUH{#1}\newcommand\sc@AcTitleENH{#2}\act@Htrue\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@AcTitleRUI{#1}\newcommand\sc@AcTitleENI{#2}\act@Itrue\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@AcTitleRUJ{#1}\newcommand\sc@AcTitleENJ{#2}\act@Jtrue\fi
+}
+%
+\newcommand\Position[2]{%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@OtherRUA{#1}\newcommand\sc@OtherENA{#2}\oth@Atrue\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@OtherRUB{#1}\newcommand\sc@OtherENB{#2}\oth@Btrue\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@OtherRUC{#1}\newcommand\sc@OtherENC{#2}\oth@Ctrue\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@OtherRUD{#1}\newcommand\sc@OtherEND{#2}\oth@Dtrue\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@OtherRUE{#1}\newcommand\sc@OtherENE{#2}\oth@Etrue\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@OtherRUF{#1}\newcommand\sc@OtherENF{#2}\oth@Ftrue\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@OtherRUG{#1}\newcommand\sc@OtherENG{#2}\oth@Gtrue\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@OtherRUH{#1}\newcommand\sc@OtherENH{#2}\oth@Htrue\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@OtherRUI{#1}\newcommand\sc@OtherENI{#2}\oth@Itrue\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@OtherRUJ{#1}\newcommand\sc@OtherENJ{#2}\oth@Jtrue\fi
+}
+%
+\newcommand\Address[3][1]{%
+    \ifnum\value{authorcnt}=1 \expandafter\def\csname sc@AddrRUA\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENA\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=2 \expandafter\def\csname sc@AddrRUB\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENB\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=3 \expandafter\def\csname sc@AddrRUC\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENC\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=4 \expandafter\def\csname sc@AddrRUD\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrEND\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=5 \expandafter\def\csname sc@AddrRUE\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENE\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=6 \expandafter\def\csname sc@AddrRUF\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENF\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=7 \expandafter\def\csname sc@AddrRUG\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENG\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=8 \expandafter\def\csname sc@AddrRUH\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENH\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=9 \expandafter\def\csname sc@AddrRUI\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENI\sc@NL{#1}\endcsname{#3}\fi
+    \ifnum\value{authorcnt}=10 \expandafter\def\csname sc@AddrRUJ\sc@NL{#1}\endcsname{#2}\expandafter\def\csname sc@AddrENJ\sc@NL{#1}\endcsname{#3}\fi
+}
+%
+\newcommand\ResearchArea[2]{%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@ResAreaRUA{#1}\newcommand\sc@ResAreaENA{#2}\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@ResAreaRUB{#1}\newcommand\sc@ResAreaENB{#2}\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@ResAreaRUC{#1}\newcommand\sc@ResAreaENC{#2}\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@ResAreaRUD{#1}\newcommand\sc@ResAreaEND{#2}\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@ResAreaRUE{#1}\newcommand\sc@ResAreaENE{#2}\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@ResAreaRUF{#1}\newcommand\sc@ResAreaENF{#2}\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@ResAreaRUG{#1}\newcommand\sc@ResAreaENG{#2}\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@ResAreaRUH{#1}\newcommand\sc@ResAreaENH{#2}\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@ResAreaRUI{#1}\newcommand\sc@ResAreaENI{#2}\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@ResAreaRUJ{#1}\newcommand\sc@ResAreaENJ{#2}\fi
+}
+%
+\newcommand\Orcid[1]{%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@OrcidA{#1}\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@OrcidB{#1}\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@OrcidC{#1}\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@OrcidD{#1}\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@OrcidE{#1}\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@OrcidF{#1}\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@OrcidG{#1}\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@OrcidH{#1}\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@OrcidI{#1}\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@OrcidJ{#1}\fi
+}
+%
+\newcommand\Email[1]{%
+    \ifnum\value{authorcnt}=1 \newcommand\sc@EmailA{#1}\fi
+    \ifnum\value{authorcnt}=2 \newcommand\sc@EmailB{#1}\fi
+    \ifnum\value{authorcnt}=3 \newcommand\sc@EmailC{#1}\fi
+    \ifnum\value{authorcnt}=4 \newcommand\sc@EmailD{#1}\fi
+    \ifnum\value{authorcnt}=5 \newcommand\sc@EmailE{#1}\fi
+    \ifnum\value{authorcnt}=6 \newcommand\sc@EmailF{#1}\fi
+    \ifnum\value{authorcnt}=7 \newcommand\sc@EmailG{#1}\fi
+    \ifnum\value{authorcnt}=8 \newcommand\sc@EmailH{#1}\fi
+    \ifnum\value{authorcnt}=9 \newcommand\sc@EmailI{#1}\fi
+    \ifnum\value{authorcnt}=10 \newcommand\sc@EmailJ{#1}\fi
+}
+%
+\newcommand\Postcode[2][1]{%
+    \ifnum\value{authorcnt}=1 \expandafter\def\csname sc@PostA\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=2 \expandafter\def\csname sc@PostB\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=3 \expandafter\def\csname sc@PostC\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=4 \expandafter\def\csname sc@PostD\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=5 \expandafter\def\csname sc@PostE\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=6 \expandafter\def\csname sc@PostF\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=7 \expandafter\def\csname sc@PostG\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=8 \expandafter\def\csname sc@PostH\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=9 \expandafter\def\csname sc@PostI\sc@NL{#1}\endcsname{#2}\fi
+    \ifnum\value{authorcnt}=10 \expandafter\def\csname sc@PostJ\sc@NL{#1}\endcsname{#2}\fi
+}
+%
+\newcommand\sc@PrtAuthorNameRUInHeader[1]{%
+    \smallskip
+    \centerline{\bf\normalsize\hyperlink{ruauthor}{#1}}\par%
+}
+%
+\newcommand\sc@PrtAuthorLinksRUInHeader[2]{%
+    \centerline{\small ORCID:~\href{https://orcid.org/#1}{\nolinkurl{#1}}, %
+        e-mail:~\href{mailto:#2}{\nolinkurl{#2}}}\par%
+}
+%
+\newcommand\sc@PrtAuthorNameENInHeader[1]{%
+    \smallskip
+    \centerline{\bf\normalsize\hyperlink{enauthor}{#1}}\par%
+}
+%
+\newcommand\sc@PrtAuthorLinksENInHeader[2]{%
+    \centerline{\small ORCID:~\href{https://orcid.org/#1}{\nolinkurl{#1}}, %
+        e-mail:~\href{mailto:#2}{\nolinkurl{#2}}}\par%
+}
+%
+\newcounter{showacnt}
+\newcounter{showcnt}
+\newcommand\showRuAuthors{%
+    \forloop{showacnt}{1}{\value{showacnt}<\value{authorcnt} \or \value{showacnt}=\value{authorcnt}}{%
+        \sc@PrtAuthorNameRUInHeader{\csname sc@AuthorRU\sc@NumLet{\theshowacnt}\endcsname}\rlh%
+        \forloop{showcnt}{1}{\value{showcnt}<\value{affcnt\sc@NumLet{\theshowacnt}} \or \value{showcnt}=\value{affcnt\sc@NumLet{\theshowacnt}}}{%
+            %\forloop{showcnt}{1}{\value{showcnt}<2}{%
+                {\centering\small
+                    \csname sc@InstitutRU\sc@NumLet{\theshowacnt}\sc@NL{\theshowcnt}\endcsname, %\linebreak
+                    \csname sc@CityRU\sc@NumLet{\theshowacnt}\sc@NL{\theshowcnt}\endcsname, 
+                    \csname sc@StateRU\sc@NumLet{\theshowacnt}\sc@NL{\theshowcnt}\endcsname\par\rlh}
+            }
+            \sc@PrtAuthorLinksRUInHeader{\csname sc@Orcid\sc@NumLet{\theshowacnt}\endcsname}{\csname sc@Email\sc@NumLet{\theshowacnt}\endcsname}
+        }
+    }
+    \newcommand\showEnAuthors{%
+        \forloop{showacnt}{1}{\value{showacnt}<\value{authorcnt} \or \value{showacnt}=\value{authorcnt}}{%
+            \sc@PrtAuthorNameENInHeader{\csname sc@AuthorEN\sc@NumLet{\theshowacnt}\endcsname}\rlh%
+            \forloop{showcnt}{1}{\value{showcnt}<\value{affcnt\sc@NumLet{\theshowacnt}} \or \value{showcnt}=\value{affcnt\sc@NumLet{\theshowacnt}}}{%
+                %\forloop{showcnt}{1}{\value{showcnt}<2}{%
+                    {\centering\small
+                        \csname sc@InstitutEN\sc@NumLet{\theshowacnt}\sc@NL{\theshowcnt}\endcsname, %\linebreak
+                        \csname sc@CityEN\sc@NumLet{\theshowacnt}\sc@NL{\theshowcnt}\endcsname, 
+                        \csname sc@StateEN\sc@NumLet{\theshowacnt}\sc@NL{\theshowcnt}\endcsname\par\rlh}
+                }
+                \sc@PrtAuthorLinksENInHeader{\csname sc@Orcid\sc@NumLet{\theshowacnt}\endcsname}{\csname sc@Email\sc@NumLet{\theshowacnt}\endcsname}
+            }
+        }
+        %
+        \newcommand\MakeArticleHeader{%
+            \setcounter{rulitcnt}{0}%
+            \setcounter{enlitcnt}{0}%
+            \setcounter{appendixcnt}{0}%
+            \newpage\label{firstPage}
+            \begin{tcolorbox}[breakable,colback=white,colframe=white,leftright skip=0mm,left*=\pparindent,right*=\pparindent]
+                doi~\sc@DOI\hfill\hfill\parbox[t]{70mm}{\raggedleft УДК~\sc@UDC}\par
+                \vspace*{5mm plus 1mm minus 2mm}\par
+                {\centering\renewcommand{\baselinestretch}{1.04}\Large%
+                    \textbf{\sc@ArticleRU}\par
+                }%
+                \vspace*{5mm plus 1mm minus 2mm}
+                \showRuAuthors
+                
+                \vspace*{3mm plus 1mm minus 1mm}
+                \textbf{Аннотация:}~\sc@AbstractRU\par\smallskip
+                
+                \textbf{Ключевые слова:}~\sc@KeyWordsRU\par\smallskip
+                \ifack
+                \textbf{Благодарности:}~\sc@AckRU\par\smallskip
+                \fi
+                \textbf{Для цитирования:}~\sc@CitationRU
+                \par\bigskip\noindent\hrule
+            \end{tcolorbox}
+            \RightsAuthors{\kern -4mm \copyright~\foot@RuAuthors}
+            \begin{tcolorbox}[breakable,colback=white,colframe=white,leftright skip=0mm,left*=\pparindent,right*=\pparindent]
+                \vspace*{-2mm}%
+                {\centering\renewcommand{\baselinestretch}{1.04}\Large%
+                    \textbf{\sc@ArticleEN}\par
+                }%
+                \vspace*{5mm plus 1mm minus 2mm}
+                \showEnAuthors
+                
+                \vspace*{3mm plus 1mm minus 1mm}
+                \textbf{Abstract:}~\sc@AbstractEN\par\smallskip
+                
+                \textbf{Keywords:}~\sc@KeyWordsEN\par\smallskip
+                \ifack
+                \textbf{Acknowledgements:}~\sc@AckEN\par\smallskip
+                \fi
+                \textbf{For citation:}~\sc@CitationEN
+                \par\bigskip\noindent\hrule
+            \end{tcolorbox}
+            \vspace*{5mm plus 1mm minus 6mm}
+        }% END MakeArticleHeader
+        %
+        %
+        \let\nm@break\break
+        \newcounter{loopA}
+        \newcounter{loopa}
+        \newcommand\MakeAuthorsInfoRU{%
+            \par\medskip
+            \ifnum\value{authorcnt}=1 
+            {\bf\hypertarget{ruauthor}{Информация об авторе}}
+            \else 
+            {\bf\hypertarget{ruauthor}{Информация об авторах}}
+            \fi
+            \renewcommand{\break}{\ }%
+            \par
+            \begin{description}
+                \forloop{loopA}{1}{\value{loopA}<\value{authorcnt} \or \value{loopA}=\value{authorcnt}}{%
+                    \item{%
+                        \textit{\csname sc@FullNameRU\sc@NumLet{\theloopA}\endcsname~---} % 
+                        \csname ifacd@\sc@NumLet{\theloopA}\endcsname\csname sc@AcDegreeRU\sc@NumLet{\theloopA}\endcsname, \fi%
+                        \csname ifact@\sc@NumLet{\theloopA}\endcsname\csname sc@AcTitleRU\sc@NumLet{\theloopA}\endcsname, \fi%
+                        \csname ifoth@\sc@NumLet{\theloopA}\endcsname\csname sc@OtherRU\sc@NumLet{\theloopA}\endcsname; \fi%
+                        \forloop{loopa}{1}{\value{loopa}<\value{affcnt\sc@NumLet{\theloopA}} \or \value{loopa}=\value{affcnt\sc@NumLet{\theloopA}}}{%
+                            \ifnum\value{affcnt\sc@NumLet{\theloopA}}>1 {\arabic{loopa})~}\fi            
+                            \csname sc@InstitutRU\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname,
+                            \csname sc@AddrRU\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname,
+                            \csname sc@Post\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname,
+                            \csname sc@CityRU\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname, 
+                            \csname sc@StateRU\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname%
+                            \ifnum\value{loopa}<\value{affcnt\sc@NumLet{\theloopA}}{;\ }\else{.\par}\fi            
+                        }
+                    }
+                }
+            \end{description}
+            \renewcommand{\break}{\nm@break}%
+        }%
+        %
+        \newcommand\MakeAuthorsInfoEN{%
+            \par\medskip
+            \ifnum\value{authorcnt}=1 
+            {\bf\hypertarget{enauthor}{Information about the author}}
+            \else 
+            {\bf\hypertarget{enauthor}{Information about the authors}}
+            \fi
+            \renewcommand{\break}{\ }%
+            \par
+            \begin{description}
+                \forloop{loopA}{1}{\value{loopA}<\value{authorcnt} \or \value{loopA}=\value{authorcnt}}{%
+                    \item{%
+                        \textit{\csname sc@FullNameEN\sc@NumLet{\theloopA}\endcsname~---} % 
+                        \csname ifacd@\sc@NumLet{\theloopA}\endcsname\csname sc@AcDegreeEN\sc@NumLet{\theloopA}\endcsname, \fi%
+                        \csname ifact@\sc@NumLet{\theloopA}\endcsname\csname sc@AcTitleEN\sc@NumLet{\theloopA}\endcsname, \fi%
+                        \csname ifoth@\sc@NumLet{\theloopA}\endcsname\csname sc@OtherEN\sc@NumLet{\theloopA}\endcsname; \fi%
+                        \forloop{loopa}{1}{\value{loopa}<\value{affcnt\sc@NumLet{\theloopA}} \or \value{loopa}=\value{affcnt\sc@NumLet{\theloopA}}}{%
+                            \ifnum\value{affcnt\sc@NumLet{\theloopA}}>1 {\arabic{loopa})~}\fi            
+                            \csname sc@InstitutEN\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname,
+                            \csname sc@AddrEN\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname,
+                            \csname sc@Post\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname,
+                            \csname sc@CityEN\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname, 
+                            \csname sc@StateEN\sc@NumLet{\theloopA}\sc@NL{\theloopa}\endcsname%
+                            \ifnum\value{loopa}<\value{affcnt\sc@NumLet{\theloopA}}{;\ }\else{.\par}\fi            
+                        }
+                    }
+                }
+            \end{description}
+            \renewcommand{\break}{\nm@break}%
+        }% 
+        %
+        \newcommand\foot@RuAuthors{%
+            \ifnum\value{authorcnt}=1
+            \sc@AuthorRUA
+            \fi
+            \ifnum\value{authorcnt}=2
+            \sc@AuthorRUA, \sc@AuthorRUB
+            \fi
+            \ifnum\value{authorcnt}=3
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC
+            \fi
+            \ifnum\value{authorcnt}=4
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC, \sc@AuthorRUD
+            \fi
+            \ifnum\value{authorcnt}=5
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC, \sc@AuthorRUD, \sc@AuthorRUE
+            \fi
+            \ifnum\value{authorcnt}=6
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC, \sc@AuthorRUD, \sc@AuthorRUE, \sc@AuthorRUF
+            \fi
+            \ifnum\value{authorcnt}=7
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC, \sc@AuthorRUD, \sc@AuthorRUE, \sc@AuthorRUF, \sc@AuthorRUG
+            \fi
+            \ifnum\value{authorcnt}=8
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC, \sc@AuthorRUD, \sc@AuthorRUE, \sc@AuthorRUF, \sc@AuthorRUG, \sc@AuthorRUH
+            \fi
+            \ifnum\value{authorcnt}=9
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC, \sc@AuthorRUD, \sc@AuthorRUE, \sc@AuthorRUF, \sc@AuthorRUG, \sc@AuthorRUH, \sc@AuthorRUI
+            \fi
+            \ifnum\value{authorcnt}=10
+            \sc@AuthorRUA, \sc@AuthorRUB, \sc@AuthorRUC, \sc@AuthorRUD, \sc@AuthorRUE, \sc@AuthorRUF, \sc@AuthorRUG, \sc@AuthorRUH, \sc@AuthorRUI, \sc@AuthorRUJ
+            \fi
+        }
+        %
+        \newcommand\foot@EnAuthors{%
+            \ifnum\value{authorcnt}=1
+            \sc@AuthorENA
+            \fi
+            \ifnum\value{authorcnt}=2
+            \sc@AuthorENA, \sc@AuthorENB
+            \fi
+            \ifnum\value{authorcnt}=3
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC
+            \fi
+            \ifnum\value{authorcnt}=4
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC, \sc@AuthorEND
+            \fi
+            \ifnum\value{authorcnt}=5
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC, \sc@AuthorEND, \sc@AuthorENE
+            \fi
+            \ifnum\value{authorcnt}=6
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC, \sc@AuthorEND, \sc@AuthorENE, \sc@AuthorENF
+            \fi
+            \ifnum\value{authorcnt}=7
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC, \sc@AuthorEND, \sc@AuthorENE, \sc@AuthorENF, \sc@AuthorENG
+            \fi
+            \ifnum\value{authorcnt}=8
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC, \sc@AuthorEND, \sc@AuthorENE, \sc@AuthorENF, \sc@AuthorENG, \sc@AuthorENH
+            \fi
+            \ifnum\value{authorcnt}=9
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC, \sc@AuthorEND, \sc@AuthorENE, \sc@AuthorENF, \sc@AuthorENG, \sc@AuthorENH, \sc@AuthorENI
+            \fi
+            \ifnum\value{authorcnt}=10
+            \sc@AuthorENA, \sc@AuthorENB, \sc@AuthorENC, \sc@AuthorEND, \sc@AuthorENE, \sc@AuthorENF, \sc@AuthorENG, \sc@AuthorENH, \sc@AuthorENI, \sc@AuthorENJ
+            \fi
+        }
+        %
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[LE]{\thepage}
+        \fancyhead[RO]{\thepage}
+        \fancyhead[RE]{\parbox[t]{160mm}{\raggedleft\footnotesize ВЫЧИСЛИТЕЛЬНЫЕ МЕТОДЫ И ПРОГРАММИРОВАНИЕ / NUMERICAL METHODS AND PROGRAMMING\break
+                \sc@YEAR,~\textbf{\sc@VOL}~(\sc@VIP), \pageref{firstPage}--\pageref{LastPage}. \ doi~\sc@DOI\rule[-2mm]{0pt}{5mm}}}
+        \fancyhead[LO]{\parbox[t]{160mm}{\raggedright\footnotesize ВЫЧИСЛИТЕЛЬНЫЕ МЕТОДЫ И ПРОГРАММИРОВАНИЕ / NUMERICAL METHODS AND PROGRAMMING\break
+                \sc@YEAR,~\textbf{\sc@VOL}~(\sc@VIP), \pageref{firstPage}--\pageref{LastPage}. \ doi~\sc@DOI\rule[-2mm]{0pt}{5mm}}}
+        %
+        \newcommand{\DateRU}{%
+            \par\medskip
+            \noindent
+            \parbox[t]{60mm}{\raggedright\sl Поступила в редакцию\break\sc@ReceivedRU}\hfill\parbox[t]{60mm}{\raggedleft\sl Принята к публикации\break\sc@AcceptedRU}%
+        }
+        \newcommand{\DateEN}[2]{%
+            \par\medskip
+            \noindent
+            \parbox[t]{60mm}{\raggedright\sl Received\break\sc@ReceivedEN}\hfill\parbox[t]{60mm}{\raggedleft\sl Accepted for publication\break\sc@AcceptedEN}%
+        }
+        %
+        \titleformat{\section}[runin]%
+        {\normalfont\normalsize\bfseries}{\arabic{section}.\rule{0pt}{4.5mm}}{0em}{\space}[.]
+        \titlespacing*{\section}{\parindent}{0ex}{0.25em}
+        %
+        \let\NMsection\section
+        \renewcommand{\section}[1]{%
+            \NMsection{#1}\pdfbookmark[1]{\arabic{section}.~#1}{bkm\arabic{section}}%
+        }
+        %
+        \newcounter{nmsectioncnt}
+        \newcounter{nmparagraphcnt}[nmsectioncnt]
+        %
+        \def\thechapter{}
+        \def\thesection{\arabic{section}}
+        \def\thesubsection{\arabic{section}.\arabic{subsection}}
+        \setcounter{secnumdepth}{3}
+        %
+        \titleformat{\subsection}[runin]%
+        {\normalfont\normalsize\bfseries}% 
+        {\indent\ifnum\value{section}>0{%
+                \arabic{section}.\arabic{subsection}.\rule{0pt}{4mm}%
+            }\else{%
+                \arabic{subsection}.\rule{0pt}{4mm}%
+            }\fi}% 
+        {0.7ex}% 
+        {}% 
+        [.]%
+        \titlespacing*{\subsection}{0pt}{0pt}{1ex}
+        %
+        \let\NMsubsection\subsection
+        \renewcommand{\subsection}[1]{%
+            \NMsubsection{#1}%
+            \pdfbookmark[2]{%
+                \ifnum\value{section}>0{%
+                    \arabic{section}.\arabic{subsection}.~#1%
+                }\else{%
+                    \arabic{subsection}.~#1%
+                }\fi}{bkm\arabic{section}\arabic{subsection}}%
+        }
+        %
+        \renewcommand{\subsubsection}[1]{%
+            \refstepcounter{subsubsection}%
+            \par\indent{\slshape{\S\,\rule[-2.5mm]{0pt}{7.3mm}\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.~#1.}}}
+        %
+        \renewcommand{\paragraph}[1]{%
+            \par\indent{\itshape\underline{\rule{0pt}{4.5mm}#1}}}
+        %
+        \renewcommand{\paragraph}[1]{%
+            \par\indent{\itshape\underline{\rule{0pt}{4.5mm}#1}}}
+        %
+        \newcounter{tmpsectionstore}
+        \setcounter{tmpsectionstore}{0}
+        %\let\NMappendix\appendix
+        \newcommand{\Appendix}[2]{%
+            \ifnum\value{tmpsectionstore}=0{%
+                \setcounter{tmpsectionstore}{\thesection}
+                \setcounter{section}{0}
+                \setcounter{subsection}{0}
+            }\fi
+            \refstepcounter{section}\label{#2}
+            \pdfbookmark{Приложение~\thesection.~#1}{bkm-app\thesection}
+            \par\bigskip
+            \begin{center}\bf Приложение~\thesection\\#1\end{center}
+        }
+        %
+        \setlength{\footnotesep}{4mm}
+        \setlength{\skip\footins}{4mm}
+        \newcommand{\RightsAuthors}[1]{%
+            \begingroup
+            \renewcommand\thefootnote{}\footnote{\renewcommand{\baselinestretch}{.4}\normalsize%
+                \,#1}%
+            \addtocounter{footnote}{-1}%
+            \endgroup%
+        }
+        \newcommand{\RightsRCC}[1]{%
+            \begingroup
+            \renewcommand\thefootnote{}\footnote{\renewcommand{\baselinestretch}{.4}\normalsize%
+                \,#1}%
+            \addtocounter{footnote}{-1}%
+            \endgroup%
+        }
+        %
+        \def\rl{\rule[-1.5mm]{0pt}{5mm}}%
+        \def\rld{\rule[-1.5mm]{0pt}{2mm}}%
+        \def\rlh{\rule{0pt}{3.5mm}}%
+        \renewcommand{\arraystretch}{1.2}
+        \renewcommand{\tabcolsep}{6pt}
+        %
+        \def\LITERRUS{%
+            \par{\bf Список литературы}%
+            \setcounter{rulitcnt}{0}%
+            \settowidth{\lititemlength}{\mbox{\small 999.~}}%
+            \par\vspace*{2mm plus 1mm}%
+            \refstepcounter{section}
+            \pdfbookmark[0]{Список литературы}{bkm-lit\arabic{section}}
+        }
+        %
+        \newcommand{\rlitem}[2]{%
+            \refstepcounter{rulitcnt}\label{#1}%
+            \par\noindent\parbox[t]{\lititemlength}{\hfill\small\therulitcnt.}%
+            ~\parbox[t]{\dimexpr(170mm-\lititemlength)\relax}{\small #2\rule[-2.3mm]{0pt}{3mm}}\par%
+        }%
+        %
+        \def\REFERENCES{%
+            \par{\bf References}%
+            \setcounter{enlitcnt}{0}%
+            \settowidth{\lititemlength}{\mbox{\small 999.~}}%
+            \par\vspace*{2mm plus 1mm minus 1mm}%
+            \refstepcounter{section}
+            \pdfbookmark[0]{References}{bkm-ref\arabic{section}}
+        }
+        %
+        \newcommand{\elitem}[2]{%
+            \refstepcounter{enlitcnt}\label{#1}
+            \par\noindent\parbox[t]{\lititemlength}{\hfill\small\theenlitcnt.}%
+            ~\parbox[t]{\dimexpr(170mm-\lititemlength)\relax}{\small%
+                \foreignlanguage{english}{#2}\rule[-2.3mm]{0pt}{3mm}\par}%
+        }%
+        %
+        \newcommand{\doi}[1]{%
+            doi~\href{https://dx.doi.org/#1}{\nolinkurl{#1}}%
+        }
+        %
+        \newcommand{\MakeVerbDense}{\preto{\@verbatim}{\topsep=2pt \partopsep=2pt }}
+        \newcommand{\MakeVerbLoose}{\preto{\@verbatim}{\topsep=6pt \partopsep=6pt }}
+        %
+        \def\No{№}
+        \def\dd{\hbox to0pt{\hss$\phantom{p}$\hss}}
+        \newcommand{\COMMENT}[1]{}
+        \renewcommand{\appendix}[2]{%
+            \newpage\refstepcounter{appendixcnt}\label{#2}%
+            \pdfbookmark[1]{Приложение \theappendixcnt. #1}{bkm-pril\arabic{appendixcnt}}
+            \begin{center}\normalsize
+                \textbf{Приложение \arabic{appendixcnt}}\\[1mm]
+                \textbf{#1}\\[3mm]
+            \end{center}
+        }
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %
+        \newcounter{cntAlg}
+        \newcounter{cntStrAlg}[cntAlg]
+        %
+        \newlength{\algCaptUpVSkip}
+        \newlength{\algCaptDnVSkip}
+        \newlength{\algCaptHSkip}
+        \newlength{\algCaptAlg}
+        \newlength{\algStringNumWidth}
+        \newlength{\algStringAfterNumOffs}
+        \newlength{\algTabulator}
+        \newlength{\textAwidth}
+        %
+        \setlength\algCaptUpVSkip{2mm}
+        \setlength\algCaptDnVSkip{1.3mm}
+        \setlength\algCaptHSkip{1mm}
+        \setlength\algStringAfterNumOffs{4mm}
+        \settowidth{\algStringNumWidth}{\mbox{\small 999:\hspace*{\algStringAfterNumOffs}}}
+        \settowidth{\algTabulator}{\mbox{nn}}
+        \setlength{\textAwidth}{\textwidth}
+        %
+        \DeclareDocumentCommand{\algLine}{O{0} O{} m}{%
+            \setlength{\textAwidth}{\textwidth}
+            \noindent\parbox{\algStringNumWidth}{\refstepcounter{cntStrAlg}%
+                \hfill\small\thecntStrAlg:\hspace*{\algStringAfterNumOffs}%
+                \IfNoValueTF{#2}%
+                {}%
+                {\label{#2}}%
+            }%parbox
+            \IfNoValueTF{#1}%
+            {}%
+            {\hspace*{\dimexpr(#1\algTabulator)\relax}}%
+            \parbox[t]{\dimexpr(\textAwidth-#1\algTabulator-\algStringNumWidth)\relax}{#3}%
+        }
+        %
+        \DeclareDocumentCommand{\algLineDouble}{O{0} O{} m m}{%
+            \setlength{\textAwidth}{82.5mm}
+            \noindent\parbox{\algStringNumWidth}{\refstepcounter{cntStrAlg}%
+                \hfill\small\thecntStrAlg:\hspace*{\algStringAfterNumOffs}%
+                \IfNoValueTF{#2}%
+                {}%
+                {\label{#2}}%
+            }%parbox
+            \IfNoValueTF{#1}%
+            {}%
+            {\hspace*{\dimexpr(#1\algTabulator)\relax}}%
+            \parbox[t]{\dimexpr(\textAwidth-#1\algTabulator-\algStringNumWidth)\relax}{#3\phantom{!}}%
+            \hfill
+            \parbox{\algStringNumWidth}{\hfill\small\thecntStrAlg:\hspace*{\algStringAfterNumOffs}%
+                \IfNoValueTF{#2}%
+                {}%
+                {\label{#2}}%
+            }%parbox
+            \IfNoValueTF{#1}%
+            {}%
+            {\hspace*{\dimexpr(#1\algTabulator)\relax}}%
+            \parbox[t]{\dimexpr(\textAwidth-#1\algTabulator-\algStringNumWidth)\relax}{#4\phantom{!}}%
+            \setlength{\textAwidth}{\textwidth}
+        }
+        %
+        %
+        \newenvironment{nmAlgorithm}[3]{\small%
+            \noindent\refstepcounter{cntAlg}\label{#1}\hrule\par\vspace*{\algCaptUpVSkip}%
+            \settowidth{\algCaptAlg}{\hspace*{\algCaptHSkip}\text{Алгоритм~\thecntAlg.\ }}
+            \noindent\parbox[t]{\algCaptAlg}{\hfill\text{Алгоритм~\thecntAlg.\ }}%
+            ~\parbox[t]{\dimexpr(\textwidth-\algCaptAlg)\relax}{\raggedright #2}\\[1mm]%
+            \noindent\parbox{\algCaptAlg}{\hfill\text{\oppo{Algorithm~\thecntAlg.\ }}}%
+            ~\raisebox{6.7pt}{\parbox[t]{\dimexpr(\textwidth-\algCaptAlg)}{\raggedright \oppo{#3}}}\par%
+            \vspace*{\algCaptDnVSkip}\hrule\vspace*{\algCaptUpVSkip}\par
+        }{%
+            \par\vspace*{\algCaptDnVSkip}\hrule\vspace*{\algCaptUpVSkip}\par
+        }
+        %
+        \newcommand{\algLineComment}[1]{%
+            \noindent\centering #1}
+        %
+        \newcommand{\algLineDoubleComment}[2]{%
+            \noindent\parbox{82mm}{\centering #1}\rule[-3mm]{0pt}{6mm}\hfill\parbox{82mm}{\centering #2}}
+        %
+        %
+        \newcommand{\algINPUT}{\textbf{input\ }}
+        \newcommand{\algFOR}{\textbf{for\ }}
+        \newcommand{\algDO}{\textbf{do\ }}
+        \newcommand{\algENDFOR}{\textbf{end for\ }}
+        \newcommand{\algIF}{\textbf{if\ }}
+        \newcommand{\algTHEN}{\textbf{then\ }}
+        \newcommand{\algELSE}{\textbf{else\ }}
+        \newcommand{\algELIF}{\textbf{elseif\ }}
+        \newcommand{\algENDIF}{\textbf{end if\ }}
+        \newcommand{\algGOTO}[1]{\textbf{goto}~\ref*{#1}}
+        \newcommand{\algOUTPUT}{\textbf{output\ }}
+        \newcommand{\algSTOP}{\textbf{stop\ }}
+        \newcommand{\algFUNC}{\textbf{function\ }}
+        \newcommand{\algENDFUNC}{\textbf{end function\ }}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.3)  14 OCT 2024 17:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.3)  15 OCT 2024 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1459,7 +1459,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <pic/meshWithZoom.png, id=59, 2890.8pt x 1129.21875pt>
 File: pic/meshWithZoom.png Graphic file (type png)
 <use pic/meshWithZoom.png>
-Package pdftex.def Info: pic/meshWithZoom.png  used on input line 126.
+Package pdftex.def Info: pic/meshWithZoom.png  used on input line 119.
 (pdftex.def)             Requested size: 338.5863pt x 132.24384pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1483,14 +1483,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
 [5 <./pic/meshWithZoom.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 212--214
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
 <pic/minMesh.jpeg, id=109, 3854.4pt x 2168.1pt>
 File: pic/minMesh.jpeg Graphic file (type jpg)
 <use pic/minMesh.jpeg>
-Package pdftex.def Info: pic/minMesh.jpeg  used on input line 228.
+Package pdftex.def Info: pic/minMesh.jpeg  used on input line 200.
 (pdftex.def)             Requested size: 483.69684pt x 272.07048pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1504,18 +1504,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <pic/UPFieldsReverse.png, id=124, 5781.6pt x 1129.21875pt>
 File: pic/UPFieldsReverse.png Graphic file (type png)
 <use pic/UPFieldsReverse.png>
-Package pdftex.def Info: pic/UPFieldsReverse.png  used on input line 237.
+Package pdftex.def Info: pic/UPFieldsReverse.png  used on input line 209.
 (pdftex.def)             Requested size: 483.69684pt x 94.45743pt.
 <pic/UPFieldsDirect.png, id=126, 5781.6pt x 1129.21875pt>
 File: pic/UPFieldsDirect.png Graphic file (type png)
 <use pic/UPFieldsDirect.png>
-Package pdftex.def Info: pic/UPFieldsDirect.png  used on input line 253.
+Package pdftex.def Info: pic/UPFieldsDirect.png  used on input line 218.
 (pdftex.def)             Requested size: 483.69684pt x 94.45743pt.
-<pic/graphDi1.png, id=127, 873.7443pt x 544.1931pt>
-File: pic/graphDi1.png Graphic file (type png)
-<use pic/graphDi1.png>
-Package pdftex.def Info: pic/graphDi1.png  used on input line 290.
-(pdftex.def)             Requested size: 483.69684pt x 301.2668pt.
+<pic/allGraph.png, id=127, 923.70094pt x 692.5875pt>
+File: pic/allGraph.png Graphic file (type png)
+<use pic/allGraph.png>
+Package pdftex.def Info: pic/allGraph.png  used on input line 228.
+(pdftex.def)             Requested size: 483.69684pt x 362.67332pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1529,21 +1529,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
 [7 <./pic/UPFieldsReverse.png> <./pic/UPFieldsDirect.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 295--332
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--332
-
- []
-
-<pic/graphDiWithTrendLine.png, id=140, 461.8053pt x 346.1733pt>
-File: pic/graphDiWithTrendLine.png Graphic file (type png)
-<use pic/graphDiWithTrendLine.png>
-Package pdftex.def Info: pic/graphDiWithTrendLine.png  used on input line 344.
-(pdftex.def)             Requested size: 483.69684pt x 362.59999pt.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1555,62 +1540,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[8 <./pic/graphDi1.png>]
-<pic/graphDiMaxSize.png, id=150, 461.8053pt x 346.1733pt>
-File: pic/graphDiMaxSize.png Graphic file (type png)
-<use pic/graphDiMaxSize.png>
-Package pdftex.def Info: pic/graphDiMaxSize.png  used on input line 352.
-(pdftex.def)             Requested size: 241.84842pt x 181.28943pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 25.62584pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.62584pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
-
-[9 <./pic/graphDiWithTrendLine.png>]
-<pic/allAngle1.png, id=162, 5589.63281pt x 4075.72687pt>
+[8 <./pic/allGraph.png>]
+<pic/allAngle1.png, id=153, 5589.63281pt x 4075.72687pt>
 File: pic/allAngle1.png Graphic file (type png)
 <use pic/allAngle1.png>
-Package pdftex.def Info: pic/allAngle1.png  used on input line 364.
+Package pdftex.def Info: pic/allAngle1.png  used on input line 244.
 (pdftex.def)             Requested size: 483.69684pt x 352.68234pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 25.62584pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.62584pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
-
-[10 <./pic/graphDiMaxSize.png>]
-<pic/alphaAngle.png, id=173, 461.8053pt x 346.1733pt>
-File: pic/alphaAngle.png Graphic file (type png)
-<use pic/alphaAngle.png>
-Package pdftex.def Info: pic/alphaAngle.png  used on input line 379.
-(pdftex.def)             Requested size: 483.69684pt x 362.59999pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 25.62584pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.62584pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
-
-[11 <./pic/allAngle1.png>]
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 406--406
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 274--274
 [] [] 
  []
 
@@ -1622,14 +1559,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[12 <./pic/alphaAngle.png>]<<t1.cmap>>
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-46.
+[9 <./pic/allAngle1.png>]<<t1.cmap>>
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
+14.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 446--447
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 314--315
 [] [] 
  []
 
@@ -1655,19 +1592,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[13] (./tesla.aux)
+[10] (./tesla.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 32209 strings out of 479648
- 591066 string characters out of 5886115
- 878551 words of memory out of 5000000
- 49452 multiletter control sequences out of 15000+600000
+ 32164 strings out of 479648
+ 590003 string characters out of 5886115
+ 878249 words of memory out of 5000000
+ 49412 multiletter control sequences out of 15000+600000
  495828 words of font info for 98 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 98i,15n,94p,2503b,705s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,14n,94p,2482b,705s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.60
 0pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.
 600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm090
@@ -1692,10 +1629,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy7.pfb>
-Output written on tesla.pdf (13 pages, 6577518 bytes).
+Output written on tesla.pdf (10 pages, 6615405 bytes).
 PDF statistics:
- 872 PDF objects out of 1000 (max. 8388607)
- 273 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
- 143 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 854 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,5 +1,5 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'tesla.blg'
-[59] biber:340> INFO - === Пн окт 14, 2024, 17:05:42
+[59] biber:340> INFO - === Вт окт 15, 2024, 15:54:54
 [105] Utils.pm:398> ERROR - Cannot find 'tesla.bcf'!
-[106] Biber.pm:135> INFO - ERRORS: 1
+[105] Biber.pm:135> INFO - ERRORS: 1

@@ -20,14 +20,14 @@
 \begin{document}
     %===========================  ШАПКА СТАТЬИ =================================
     \Article{\vspace*{8mm}\par Параметрическое исследование оригинальной конструкции клапана Теслы}
-    {\newpage eng text}
+    {\newpage Parametric study of the original Tesla valve design}
     
     \Abstract{В данной работе рассматривалась оригинальная конструкция гидродинамического диода в котором основным исследуемым параметром был выбран угол наклона отводящего канала. Численно исследован стационарный режим течения несжимаемой линейно-вязкой жидкости. Получена зависимость диодности устройства от угла наклона отводящего канала. Рассмотрен вопрос сеточной сходимости решения. Выбраны оптимальные параметры расчетной сетки.}
-    {eng text}
+    {In this paper, we considered the original design of a hydrodynamic diode in which the main parameter under study was the angle of inclination of the discharge channel. The stationary flow regime of an incompressible linearly viscous liquid is numerically investigated. The dependence of the diode of the device on the angle of inclination of the discharge channel is obtained. The issue of grid convergence of the solution is considered. The optimal parameters of the calculated grid are selected.}
     
     
     \Keywords{Численные методы, параметрическая модель, клапан Тесла, сеточная сходимость, параметрическое исследование, стационарный режим, OpenFoam.}
-    {eng text}
+    {Numerical methods, parametric model, Tesla valve, mesh convergence, parametric investigation, stationary mode, OpenFOAM.}
     
     \Acknowledgements{слова благодарности ...}
     {eng text}
@@ -37,32 +37,37 @@
         Вычислительные методы и программирование. 2024.
         \textbf{??}, \No~?. \pageref*{firstPage}--\pageref*{LastPage}.  
         doi 10.26089/NumMet.v??r???.}
-    {eng text}
+    {Bondarenko N. A., ...
+        Parametric study of the original Tesla valve design//
+        Numerical Methods and Programming. 2024.
+        \textbf{??}, \No~?. \pageref*{firstPage}--\pageref*{LastPage}.  
+        doi 10.26089/NumMet.v??r???.}
     
     
     \UDC{517.968;\\  519.642.3}
     \DOI{10.26089/NumMet.v??r???}
     \VOL{??}{?}
     \YEAR{2024}
-    \Received{день месяц 2024 г.}{eng text}
+    \Received{день месяц 2024 г.}{m. d., 2024}
     \Accepted{день месяц 202? г.}{eng text}
     
     
     \Author{Н. А. Бондаренко}{Nikita A.~Bondarenko}
     \FullName{Бондаренко Никита Александрович}{Nikita A.~Bondarenko}
     \Institution{Тюменкский государственный университет,\break 
-        Лаборатория исследования процессов микрофильртации}
-    {eng text}
-    \Address{Ленина, 25}{eng text}
-    \Postcode{почтовый индекс}
-    \City{Тюмень}{eng text}
+        Laboratory for the study of microfiltration processes}
+    {University of Tyumen, \break
+        }
+    \Address{Ленина, 25}{Lenin street, 25}
+    \Postcode{625003}
+    \City{Тюмень}{Tyumen}
     \CountryOfResidence{Российская Федерация}{Russia}
-    \AcademicDegree{к.ф.-м.н.}{Ph.~D.} %?????
-    \Position{вед. научн. сотр.}{Leading Scientist}
+    \AcademicDegree{Магистратура, 2 курс}{Master's degree, 2nd year} %?????
+    \Position{Лаборант исследователь}{Laboratory researcher}
     \Orcid{????-????-????-????}
     \Email{bndnikita@gmail.com}
     
-    ?????
+%    ?????
     %\Author{П.~П.~Петров}{Petr P.~Petrov}
     %\FullName{Петр Петрович Петров}{Petr P.~Petrov}
     %\Institution{Московский государственный университет имени М. В. Ломоносова,\break 
@@ -81,19 +86,19 @@
     %========================= КОНЕЦ ШАПКИ СТАТЬИ ==============================
     
     \section{Введение}\label{p:vved}
-    Характерной особенностью гидродинамических диодов, представителем которых является клапан Тесла \cite{TeslaValveReview}, является то, что при заданном расходе флюида необходимо прикладывать разный перепад давления в зависимости от направления потока. Построение геометрии каналов по выбранному шаблону позволяет генерировать сложные схемы течения при обратном подключении, когда перепад давления наибольший, и более плавные схемы при прямом подключении, когда перепад наименьший. Данные устройства нашли широкое применение в науке и технике поскольку сочетают в себе простоту конструкции за счет отсутствия механических подвижных частей и эффективность. Клапаны такого типа обладают такими преимуществами как масштабируемость, долговечность и простота изготовления из различных материалов.
+    Характерной особенностью гидродинамических диодов, представителем которых является клапан Тесла~[\ref{TeslaValveReview}], является то, что при заданном расходе флюида необходимо прикладывать разный перепад давления в зависимости от направления потока. Построение геометрии каналов по выбранному шаблону позволяет генерировать сложные схемы течения при обратном подключении, когда перепад давления наибольший, и более плавные схемы при прямом подключении, когда перепад наименьший. Данные устройства нашли широкое применение в науке и технике поскольку сочетают в себе простоту конструкции за счет отсутствия механических подвижных частей и эффективность. Клапаны такого типа обладают такими преимуществами как масштабируемость, долговечность и простота изготовления из различных материалов.
     
-    В статье \cite{JIN20188888} было проведено численное исследование работы клапана Теслы в качестве декомпрессора для водородного топлива при заправке электромобиля. Скорость, с которой сжатый водород выходит слишком высокая и повреждает топливную систему, однако, Клапан Тесла способен замедлить ток флюида поступающего в автомобиль. Анализируется распределение давления в клапане при различных скоростях. Высокий перепад давления достигается при малом гидравлическом диаметре, большом угле наклона и малом внутреннем радиусе отводного канала. 
+    В статье~[\ref{JIN20188888}] было проведено численное исследование работы клапана Теслы в качестве декомпрессора для водородного топлива при заправке электромобиля. Скорость, с которой сжатый водород выходит слишком высокая и повреждает топливную систему, однако, Клапан Тесла способен замедлить ток флюида поступающего в автомобиль. Анализируется распределение давления в клапане при различных скоростях. Высокий перепад давления достигается при малом гидравлическом диаметре, большом угле наклона и малом внутреннем радиусе отводного канала. 
     
-    В работе \cite{DU2023103670} представлена оригинальная конфигурация клапана Теслы со встроенным миксером. Также продемонстрирована модель прогнозирования и оптимизации тепловых и гидравлических характеристик гидродинамического диода. Исследователи изучают влияние внутреннего радиуса отводящего канала, длины U-образного сегмента и угла наклона отводящего канала на число Нуссельта и перепад давления.
+    В работе~[\ref{DU2023103670}] представлена оригинальная конфигурация клапана Теслы со встроенным миксером. Также продемонстрирована модель прогнозирования и оптимизации тепловых и гидравлических характеристик гидродинамического диода. Исследователи изучают влияние внутреннего радиуса отводящего канала, длины U-образного сегмента и угла наклона отводящего канала на число Нуссельта и перепад давления.
     
-    В данной работе \cite{article} было исследовано применение микрофлюидных устройств в медицине. Был представлен панорамный обзор технологий и материалов, которые могут быть использованы для лечения Гидроцефалии. Представлена наиболее подходящая комбинация материалов, технологий и конструкций для получения полностью имплантируемого микронасоса. 
+    В данной работе~[\ref{article}] было исследовано применение микрофлюидных устройств в медицине. Был представлен панорамный обзор технологий и материалов, которые могут быть использованы для лечения Гидроцефалии. Представлена наиболее подходящая комбинация материалов, технологий и конструкций для получения полностью имплантируемого микронасоса. 
     
-    В статье \cite{SONG2014407} проводился анализ предохранительного клапана прямого действия, установленного на сосуде высокого давления. Была разработана численная модель для исследования текучих и динамических характеристик клапана. Работа клапана моделируется с использованием трехмерной подвижной сетки.
+    В статье~[\ref{SONG2014407}] проводился анализ предохранительного клапана прямого действия, установленного на сосуде высокого давления. Была разработана численная модель для исследования текучих и динамических характеристик клапана. Работа клапана моделируется с использованием трехмерной подвижной сетки.
     
-    В работе \cite{OptimizationOfTheFixed-GeometryValve} рассматривался клапанный микронасос с фиксированной геометрией. Был предоставлен процесс для оптимизации формы клапана с использованием вычислительной гидродинамики в двумерной постановке в сочетании с алгоритмом оптимизации. Диодность клапана была улучшена за счет манипулирования шестью безразмерными, независимыми геометрическими параметрами клапана Теслы.
+    В работе~[\ref{OptimizationOfTheFixed-GeometryValve}] рассматривался клапанный микронасос с фиксированной геометрией. Был предоставлен процесс для оптимизации формы клапана с использованием вычислительной гидродинамики в двумерной постановке в сочетании с алгоритмом оптимизации. Диодность клапана была улучшена за счет манипулирования шестью безразмерными, независимыми геометрическими параметрами клапана Теслы.
     
-    В исследовании \cite{inproceedings} представлено параметрическое описание двух типов клапанов с фиксированной геометрией, сопло-диффузор и клапан Тесла. Был создан новый тип клапана -- клапан Тессер, обладающий характеристиками как клапана Теслы, так и сопла-диффузора. Были проведены расчеты полученного клапана в двумерной постановке. 
+    В исследовании~[\ref{inproceedings}] представлено параметрическое описание двух типов клапанов с фиксированной геометрией, сопло-диффузор и клапан Тесла. Был создан новый тип клапана -- клапан Тессер, обладающий характеристиками как клапана Теслы, так и сопла-диффузора. Были проведены расчеты полученного клапана в двумерной постановке. 
     
     Перейдем к сути проделанного исследования. В работе представлена параметрическая модель геометрии клапана Теслы, реализованная при помощи Salome Python API. В результате исследования было установлено оптимальное разрешение расчетной сетки. Параметрическое исследование выявило, при каком угле между отводящем каналом и основным клапан Тесла имеет наибольшее отношение между перепадами давления при обратном и прямом подключении.
     
@@ -226,7 +231,7 @@
     \begin{figure}[H]
             \centering
             \includegraphics[width = 1\linewidth]{allGraph}
-            \caption{Результаты исследования.}
+            \caption{Результаты исследования. $a$ - зависимость диодности от количества элементов, $b$ - дополнительные расчеты зависимости диодности от количества элементов с добавлением линий тренда, $c$ - зависимость диодности от максимального размера ячейки расчетной сетки, $d$ - зависимость диодности от угла $\alpha$.}
             \label{fig:allGraph}
         \end{figure}
     
@@ -265,22 +270,76 @@
     %---------------------------------------------
     
     %1
-    \rlitem{Algo500-1}{%1
-        \textit{Antonov~A.S., Nikitenko~D.A., Voevodin~Vl.V.} 
-        Algo500 --- a new approach to the joint analysis of
-        algorithms and computers~//
-        Lobachevskii J. Math. 2020. {\bf 41}, N~8. 1435--1443. 
-        \doi{10.1134/S1995080220080041}.
+    \elitem{TeslaValveReview}{%1
+    Purwidyantri, A.;Prabowo, B.A.
+    ``Tesla Valve Microﬂuidics: The Rise of ForgottenTechnology,''
+    Chemosensors 2023. {\bf 11}, 256.
+    \doi{10.3390/chemosensors11040256}.
     }
     
+    %2
+    \elitem{JIN20188888}{%2
+        Zhi-jiang Jin, Zhi-xin Gao, Min-rui Chen, Jin-yuan Qian,
+        Parametric study on Tesla valve with reverse flow for hydrogen decompression,
+        International Journal of Hydrogen Energy,
+        Volume 43, Issue 18,
+        2018,
+        Pages 8888-8896,
+        ISSN 0360-3199.
+        \doi{10.1016/j.ijhydene.2018.03.014}.
+    }
     
+    %3
+    \elitem{DU2023103670}{%3
+        Gang Du, Theyab R. Alsenani, Jitendra Kumar, Salem Alkhalaf, Tamim Alkhalifah, Fahad Alturise, Hamad Almujibah, Sami Znaidia, Ahmed Deifalla,
+        Improving thermal and hydraulic performances through artificial neural networks: An optimization approach for Tesla valve geometrical parameters,
+        Case Studies in Thermal Engineering,
+        Volume 52,
+        2023,
+        103670,
+        ISSN 2214-157X.
+        \doi{10.1016/j.csite.2023.103670}.
+    }
     
+    %4
+    \elitem{article}{%4
+        Morganti, Elisa and Pignatel, Giorgio. (2005). Microfluidics for the treatment of the hydrocephalus. Proc. 1st Int. Conf. on Sensing Technology. 
+    }
+    
+    %5
+    \elitem{SONG2014407}{%5
+        Xueguan Song, Lei Cui, Maosen Cao, Wenping Cao, Youngchul Park, William M. Dempster,
+        A CFD analysis of the dynamics of a direct-operated safety relief valve mounted on a pressure vessel,
+        Energy Conversion and Management,
+        Volume 81,
+        2014,
+        Pages 407-419,
+        ISSN 0196-8904,
+        \doi{10.1016/j.enconman.2014.02.021}.
+    }
+    
+    %6
+    \elitem{OptimizationOfTheFixed-GeometryValve}{%6
+        Gamboa, A. R., Morris, C. J., and Forster, F. K. (2003). Optimization of the Fixed-Geometry Valve for Increased Micropump Performance. Fluids Engineering. doi:10.1115/imece2003-55036 
+        \doi{10.1115/imece2003-55036}.
+    }
+    
+    %7
+    \elitem{inproceedings}{%7
+        Forster, Fred and Williams, Brian. (2002). Parametric Design of Fixed-Geometry Microvalves: The Tesser Valve. ASME International Mechanical Engineering Congress and Exposition, Proceedings. 
+        \doi{10.1115/IMECE2002-33628}.
+    }
+    
+%    %8
+%    \elitem{article22}{%8
+%        А. А. Гаврилов, А. А. Дектерев, А. В. Шебелев. Простой критерий оценки сеточной детализации для RANS методов. Журнал вычислительной математики и математической физики, 2023, T. 63, № 4, стр. 533-547 
+%        \doi{10.31857/S0044466923040087}.
+%    }
     
     
     %---------------------------------------------
     %Моя литература на русском (конец)
     %---------------------------------------------
-    
     
     %=======================  Список литературы ======================
     \medskip
@@ -305,16 +364,72 @@
     %---------------------------------------------
     
     %1
-    \elitem{e:Algo500-1}{%1
-        A.~S.~Antonov, D.~A.~Nikitenko, and Vl.~V.~Voevodin,
-        ``Algo500 --- A New Approach to the Joint Analysis of Algorithms
-        and Computers,''
-        Lobachevskii J. Math. {\bf 41}~(8), 1435--1443 (2020).
-        \doi{10.1134/S1995080220080041}.
+    \elitem{e:TeslaValveReview}{%1
+        Purwidyantri, A.;Prabowo, B.A.
+        ``Tesla Valve Microﬂuidics: The Rise of ForgottenTechnology,''
+        Chemosensors 2023. {\bf 11}, 256.
+        \doi{10.3390/chemosensors11040256}.
     }
     
-   
+    %2
+    \elitem{e:JIN20188888}{%2
+        Zhi-jiang Jin, Zhi-xin Gao, Min-rui Chen, Jin-yuan Qian,
+        Parametric study on Tesla valve with reverse flow for hydrogen decompression,
+        International Journal of Hydrogen Energy,
+        Volume 43, Issue 18,
+        2018,
+        Pages 8888-8896,
+        ISSN 0360-3199.
+        \doi{10.1016/j.ijhydene.2018.03.014}.
+    }
     
+    %3
+    \elitem{e:DU2023103670}{%3
+        Gang Du, Theyab R. Alsenani, Jitendra Kumar, Salem Alkhalaf, Tamim Alkhalifah, Fahad Alturise, Hamad Almujibah, Sami Znaidia, Ahmed Deifalla,
+        Improving thermal and hydraulic performances through artificial neural networks: An optimization approach for Tesla valve geometrical parameters,
+        Case Studies in Thermal Engineering,
+        Volume 52,
+        2023,
+        103670,
+        ISSN 2214-157X.
+        \doi{10.1016/j.csite.2023.103670}.
+    }
+    
+    %4
+    \elitem{e:article}{%4
+        Morganti, Elisa and Pignatel, Giorgio. (2005). Microfluidics for the treatment of the hydrocephalus. Proc. 1st Int. Conf. on Sensing Technology. 
+    }
+    
+    %5
+    \elitem{e:SONG2014407}{%5
+        Xueguan Song, Lei Cui, Maosen Cao, Wenping Cao, Youngchul Park, William M. Dempster,
+        A CFD analysis of the dynamics of a direct-operated safety relief valve mounted on a pressure vessel,
+        Energy Conversion and Management,
+        Volume 81,
+        2014,
+        Pages 407-419,
+        ISSN 0196-8904,
+        \doi{10.1016/j.enconman.2014.02.021}.
+    }
+    
+    %6
+    \elitem{e:OptimizationOfTheFixed-GeometryValve}{%6
+        Gamboa, A. R., Morris, C. J., and Forster, F. K. (2003). Optimization of the Fixed-Geometry Valve for Increased Micropump Performance. Fluids Engineering. doi:10.1115/imece2003-55036 
+        \doi{10.1115/imece2003-55036}.
+    }
+    
+    %7
+    \elitem{e:inproceedings}{%7
+        Forster, Fred and Williams, Brian. (2002). Parametric Design of Fixed-Geometry Microvalves: The Tesser Valve. ASME International Mechanical Engineering Congress and Exposition, Proceedings. 
+        \doi{10.1115/IMECE2002-33628}.
+    }
+    
+%    %8
+%    \elitem{e:article22}{%8
+%        A. A. Gavrilov, A. A. Dekterev, A. V. Shebelev. A simple criterion for evaluating grid detail for RANS methods. Journal of Computational Mathematics and Mathematical Physics, 2023, V. 63, № 4, pages 533-547 
+%        \doi{10.31857/S0044466923040087}.
+%    }
+         
     %---------------------------------------------
     %Моя литература на английском (конец)
     %---------------------------------------------

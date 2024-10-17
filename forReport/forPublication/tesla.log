@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.3)  15 OCT 2024 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.3)  17 OCT 2024 15:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1350,6 +1350,53 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
 LaTeX Info: Redefining \nameref on input line 20.
+LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 85
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 85.
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 85--85
+[][]  [] 
+ []
+
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 85.
+
+Overfull \hbox (4.44336pt too wide) in paragraph at lines 85--85
+[][]  [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1362,54 +1409,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-80.
-
-(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
-File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 80
-.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 80.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 80.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 80.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 80--80
-[][]  [] 
- []
-
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 80.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 80.
-
-Overfull \hbox (4.44336pt too wide) in paragraph at lines 80--80
-[][]  [] 
- []
-
-
-LaTeX Warning: Citation `TeslaValveReview' on page 2 undefined on input line 84
-.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 25.62584pt, for example:
@@ -1419,34 +1418,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
 [2]
-
-LaTeX Warning: Citation `JIN20188888' on page 3 undefined on input line 86.
-
-
-LaTeX Warning: Citation `DU2023103670' on page 3 undefined on input line 88.
-
-
-LaTeX Warning: Citation `article' on page 3 undefined on input line 90.
-
-
-LaTeX Warning: Citation `SONG2014407' on page 3 undefined on input line 92.
-
-
-LaTeX Warning: Citation `OptimizationOfTheFixed-GeometryValve' on page 3 undefi
-ned on input line 94.
-
-
-LaTeX Warning: Citation `inproceedings' on page 3 undefined on input line 96.
-
-<pic/teslaDesign.pdf, id=48, 3382.6375pt x 2392.94pt>
+<pic/teslaDesign.pdf, id=61, 3382.6375pt x 2392.94pt>
 File: pic/teslaDesign.pdf Graphic file (type pdf)
 <use pic/teslaDesign.pdf>
-Package pdftex.def Info: pic/teslaDesign.pdf  used on input line 106.
+Package pdftex.def Info: pic/teslaDesign.pdf  used on input line 111.
 (pdftex.def)             Requested size: 483.69684pt x 342.16592pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 25.62584pt, for example:
@@ -1455,16 +1432,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[3]
-<pic/meshWithZoom.png, id=59, 2890.8pt x 1129.21875pt>
+[3 <./pic/teslaDesign.pdf>]
+<pic/meshWithZoom.png, id=85, 2890.8pt x 1129.21875pt>
 File: pic/meshWithZoom.png Graphic file (type png)
 <use pic/meshWithZoom.png>
-Package pdftex.def Info: pic/meshWithZoom.png  used on input line 119.
+Package pdftex.def Info: pic/meshWithZoom.png  used on input line 124.
 (pdftex.def)             Requested size: 338.5863pt x 132.24384pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 25.62584pt, for example:
@@ -1473,26 +1447,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[4 <./pic/teslaDesign.pdf>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 25.62584pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.62584pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
-
-[5 <./pic/meshWithZoom.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 184--186
+[4 <./pic/meshWithZoom.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-<pic/minMesh.jpeg, id=109, 3854.4pt x 2168.1pt>
+<pic/minMesh.jpeg, id=115, 3854.4pt x 2168.1pt>
 File: pic/minMesh.jpeg Graphic file (type jpg)
 <use pic/minMesh.jpeg>
-Package pdftex.def Info: pic/minMesh.jpeg  used on input line 200.
+Package pdftex.def Info: pic/minMesh.jpeg  used on input line 205.
 (pdftex.def)             Requested size: 483.69684pt x 272.07048pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 25.62584pt, for example:
 (fancyhdr)                \setlength{\headheight}{25.62584pt}.
@@ -1500,27 +1469,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[6 <./pic/minMesh.jpeg>]
-<pic/UPFieldsReverse.png, id=124, 5781.6pt x 1129.21875pt>
+[5]
+<pic/UPFieldsReverse.png, id=132, 5781.6pt x 1129.21875pt>
 File: pic/UPFieldsReverse.png Graphic file (type png)
 <use pic/UPFieldsReverse.png>
-Package pdftex.def Info: pic/UPFieldsReverse.png  used on input line 209.
+Package pdftex.def Info: pic/UPFieldsReverse.png  used on input line 214.
 (pdftex.def)             Requested size: 483.69684pt x 94.45743pt.
-<pic/UPFieldsDirect.png, id=126, 5781.6pt x 1129.21875pt>
+<pic/UPFieldsDirect.png, id=134, 5781.6pt x 1129.21875pt>
 File: pic/UPFieldsDirect.png Graphic file (type png)
 <use pic/UPFieldsDirect.png>
-Package pdftex.def Info: pic/UPFieldsDirect.png  used on input line 218.
+Package pdftex.def Info: pic/UPFieldsDirect.png  used on input line 223.
 (pdftex.def)             Requested size: 483.69684pt x 94.45743pt.
-<pic/allGraph.png, id=127, 923.70094pt x 692.5875pt>
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 25.62584pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.62584pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
+
+[6 <./pic/minMesh.jpeg> <./pic/UPFieldsReverse.png> <./pic/UPFieldsDirect.png>]
+<pic/allGraph.png, id=145, 923.70094pt x 692.5875pt>
 File: pic/allGraph.png Graphic file (type png)
 <use pic/allGraph.png>
-Package pdftex.def Info: pic/allGraph.png  used on input line 228.
+Package pdftex.def Info: pic/allGraph.png  used on input line 233.
 (pdftex.def)             Requested size: 483.69684pt x 362.67332pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 25.62584pt, for example:
 (fancyhdr)                \setlength{\headheight}{25.62584pt}.
@@ -1528,28 +1503,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[7 <./pic/UPFieldsReverse.png> <./pic/UPFieldsDirect.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 25.62584pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.62584pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
-
-[8 <./pic/allGraph.png>]
-<pic/allAngle1.png, id=153, 5589.63281pt x 4075.72687pt>
+[7 <./pic/allGraph.png>]
+<pic/allAngle1.png, id=163, 5589.63281pt x 4075.72687pt>
 File: pic/allAngle1.png Graphic file (type png)
 <use pic/allAngle1.png>
-Package pdftex.def Info: pic/allAngle1.png  used on input line 244.
+Package pdftex.def Info: pic/allAngle1.png  used on input line 249.
 (pdftex.def)             Requested size: 483.69684pt x 352.68234pt.
-
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 274--274
-[] [] 
- []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1559,27 +1518,136 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[9 <./pic/allAngle1.png>]<<t1.cmap>>
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-14.
+[8 <./pic/allAngle1.png>]<<t1.cmap>>
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
+78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 314--315
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 278--279
 [] [] 
  []
 
 
-Package caption Warning: Unused \captionsetup[bi] on input line 104.
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 290--291
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 302--303
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 307--308
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 319--320
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 325--326
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 331--332
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 372--373
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 384--385
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 396--397
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 401--402
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 413--414
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 419--420
+[] [] 
+ []
+
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 425--426
+[] [] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 25.62584pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.62584pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
+
+[9pdfTeX warning (ext4): destination with the same identifier (name{enlitcnt.1}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 
+      pdfTeX warning (ext4): destination with the same identifier (name{enlitcn
+t.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 
+      pdfTeX warning (ext4): destination with the same identifier (name{enlitcn
+t.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 
+      pdfTeX warning (ext4): destination with the same identifier (name{enlitcn
+t.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 
+      pdfTeX warning (ext4): destination with the same identifier (name{enlitcn
+t.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 
+      pdfTeX warning (ext4): destination with the same identifier (name{enlitcn
+t.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 
+      pdfTeX warning (ext4): destination with the same identifier (name{enlitcn
+t.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.426 
+      ]
+
+Package caption Warning: Unused \captionsetup[bi] on input line 109.
 See the caption package documentation for explanation.
 
 
-Package caption Warning: Unused \captionsetup[bi-first] on input line 104.
+Package caption Warning: Unused \captionsetup[bi-first] on input line 109.
 See the caption package documentation for explanation.
 
 
-Package caption Warning: Unused \captionsetup[bi-second] on input line 104.
+Package caption Warning: Unused \captionsetup[bi-second] on input line 109.
 See the caption package documentation for explanation.
 
 
@@ -1592,47 +1660,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-13.62584pt}.
 
-[10] (./tesla.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[10] (./tesla.aux) ) 
 Here is how much of TeX's memory you used:
- 32164 strings out of 479648
- 590003 string characters out of 5886115
- 878249 words of memory out of 5000000
- 49412 multiletter control sequences out of 15000+600000
- 495828 words of font info for 98 fonts, out of 8000000 for 9000
+ 32184 strings out of 479648
+ 590465 string characters out of 5886115
+ 885173 words of memory out of 5000000
+ 49431 multiletter control sequences out of 15000+600000
+ 494135 words of font info for 96 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 98i,14n,94p,2482b,705s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.60
-0pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.
-600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm090
-0.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati100
-0.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasl100
-0.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx090
-0.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/lati090
-0.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1
-000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt0
-900.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1
-000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1
-440.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0
-900.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1
-000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx0
-800.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0
-800.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy7.pfb>
-Output written on tesla.pdf (10 pages, 6615405 bytes).
+ 98i,15n,94p,2482b,705s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh
+-t2a/lati1000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh
+-t2a/lasl1000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ectt0900.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/jkn
+appen/ec/ecbx0900.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecrm0900.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfour
+/jknappen/ec/tcrm1000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfo
+ur/lh/lh-t2a/latt0900.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfo
+ur/lh/lh-t2a/larm0900.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfo
+ur/lh/lh-t2a/labx1000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfo
+ur/lh/lh-t2a/labx1440.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfo
+ur/lh/lh-t2a/larm1000.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfo
+ur/lh/lh-t2a/labx0800.600pk> </home/nikita/.texlive2021/texmf-var/fonts/pk/ljfo
+ur/lh/lh-t2a/larm0800.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on tesla.pdf (10 pages, 6623104 bytes).
 PDF statistics:
- 854 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
+ 904 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
  144 words of extra memory for PDF output out of 10000 (max. 10000000)
 
